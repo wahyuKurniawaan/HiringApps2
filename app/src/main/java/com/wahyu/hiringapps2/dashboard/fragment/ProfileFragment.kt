@@ -11,8 +11,11 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.wahyu.hiringapps2.R
 import com.wahyu.hiringapps2.activities.SignInActivity
+import com.wahyu.hiringapps2.auth.LoginWithAuthActivity
 import com.wahyu.hiringapps2.dashboard.FormEditProfileActivity
 import com.wahyu.hiringapps2.dashboard.WebViewActivity
+import com.wahyu.hiringapps2.retrofit.LearnRetrofitActivity
+import com.wahyu.hiringapps2.room.WordListActivity
 import com.wahyu.hiringapps2.util.SharedPreferencesUtil
 
 class ProfileFragment : Fragment() {
@@ -69,6 +72,24 @@ class ProfileFragment : Fragment() {
 
             R.id.nav_about_us -> {
                 Toast.makeText(activity, "About Us", Toast.LENGTH_SHORT).show()
+                true
+            }
+
+            R.id.nav_test_room -> {
+                val intent = Intent(activity, WordListActivity::class.java)
+                startActivity(intent)
+                true
+            }
+
+            R.id.nav_test_retrofit -> {
+                val intent = Intent(activity, LearnRetrofitActivity::class.java)
+                startActivity(intent)
+                true
+            }
+
+            R.id.nav_test_login_api -> {
+                val intent = Intent(activity, LoginWithAuthActivity::class.java)
+                startActivity(intent)
                 true
             }
 

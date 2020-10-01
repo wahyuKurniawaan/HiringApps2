@@ -60,4 +60,11 @@
     <string name="name">name</string>
     <string name="image_view_project">image view project</string>
     <string name="logout">Logout</string>
+    <string name="input_a_string">input a string</string>
+    <string name="date_time_hint">01-10-2020 12:00</string>
+    <string name="test_room">Test Room</string>
+    <string name="description">Description</string>
+    <string name="price">Price</string>
+    <string name="duration">Duration</string>
+    <string name="login_with_api">Login With API</string>
 </resources>

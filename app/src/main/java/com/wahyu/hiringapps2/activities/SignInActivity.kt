@@ -19,7 +19,6 @@ class SignInActivity : BaseActivity() {
 
         binding.etInputEmail.text = intent.getStringExtra(KeyExtraIntent.EXTRA_EMAIL)?.toEditable()
         binding.etInputPassword.text = intent.getStringExtra(KeyExtraIntent.EXTRA_PASSWORD)?.toEditable()
-
     }
 
     override fun initListener() {

@@ -13,7 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".dashboard.FormEditProfileActivity"></activity>
+        <activity android:name=".auth.LoginWithAuthActivity"></activity>
+        <activity android:name=".retrofit.LearnRetrofitActivity" />
+        <activity android:name=".room.WordListActivity" />
+        <activity android:name=".room.AddWordActivity" />
+        <activity android:name=".dashboard.FormEditProfileActivity" />
         <activity android:name=".dashboard.WebViewActivity" />
         <activity android:name=".onBoard.OnBoardActivity" />
         <activity android:name=".activities.SplashActivity">

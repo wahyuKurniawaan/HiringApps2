@@ -70,8 +70,7 @@ class RecycleViewAdapter : RecyclerView.Adapter<RecycleViewAdapter.ProjectViewHo
     override fun onBindViewHolder(holder: ProjectViewHolder, position: Int) {
         holder.tvName.text = listProjectName[position]
         holder.tvPosition.text = (position + 1).toString()
-        val context = holder.imageView.context
-        Picasso.with(context).load(listProjectPictureUrl[position]).resize(100, 100).centerCrop()
+        Picasso.get().load(listProjectPictureUrl[position]).resize(100, 100).centerCrop()
             .into(holder.imageView)
     }
 

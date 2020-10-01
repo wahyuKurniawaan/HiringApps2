@@ -17,6 +17,21 @@
         android:title="@string/about_us" />
 
     <item
+        android:id="@+id/nav_test_room"
+        android:icon="@drawable/ic_exit"
+        android:title="@string/test_room" />
+
+    <item
+        android:id="@+id/nav_test_retrofit"
+        android:icon="@drawable/ic_exit"
+        android:title="@string/projects" />
+
+    <item
+        android:id="@+id/nav_test_login_api"
+        android:icon="@drawable/ic_exit"
+        android:title="@string/login_with_api" />
+
+    <item
         android:id="@+id/nav_logout"
         android:icon="@drawable/ic_exit"
         android:title="@string/logout" />
