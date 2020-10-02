@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.wahyu.hiringapps2.R
-import com.wahyu.hiringapps2.activities.SignInActivity
+import com.wahyu.hiringapps2.login.SignInActivity
 import com.wahyu.hiringapps2.auth.LoginWithAuthActivity
 import com.wahyu.hiringapps2.dashboard.FormEditProfileActivity
 import com.wahyu.hiringapps2.dashboard.WebViewActivity

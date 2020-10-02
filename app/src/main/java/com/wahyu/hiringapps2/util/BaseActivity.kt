@@ -41,6 +41,17 @@ abstract class BaseActivity: AppCompatActivity() {
         dialog.show()
     }
 
+    fun setErrorDialog(title: String?, message: String?) {
+        val dialog = AlertDialog.Builder(this)
+            .setTitle(title)
+            .setIcon(R.drawable.ic_round_error_outline_24)
+            .setMessage(message)
+            .setCancelable(true)
+            .setPositiveButton("Ok") { dialog, id ->
+                dialog.dismiss()}
+        dialog.show()
+    }
+
     fun String.toEditable(): Editable = Editable.Factory.getInstance().newEditable(this)
 
     class KeyExtraIntent {

@@ -1,4 +1,4 @@
-package com.wahyu.hiringapps2.activities
+package com.wahyu.hiringapps2.splash
 
 import android.content.Context
 import android.content.Intent
@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import com.wahyu.hiringapps2.util.BaseActivity
 import com.wahyu.hiringapps2.R
 import com.wahyu.hiringapps2.databinding.ActivitySplashBinding
+import com.wahyu.hiringapps2.login.SignInActivity
 import com.wahyu.hiringapps2.onBoard.OnBoardActivity
 
 class SplashActivity : BaseActivity() {
@@ -22,7 +23,7 @@ class SplashActivity : BaseActivity() {
 
             override fun onAnimationEnd(p0: Animation?) {
                 val intent = Intent(this@SplashActivity,
-                    if (onBoardingFinished())SignInActivity::class.java else OnBoardActivity::class.java)
+                    if (onBoardingFinished()) SignInActivity::class.java else OnBoardActivity::class.java)
                 startActivity(intent)
             }
 

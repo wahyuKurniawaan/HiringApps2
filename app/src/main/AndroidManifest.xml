@@ -20,15 +20,15 @@
         <activity android:name=".dashboard.FormEditProfileActivity" />
         <activity android:name=".dashboard.WebViewActivity" />
         <activity android:name=".onBoard.OnBoardActivity" />
-        <activity android:name=".activities.SplashActivity">
+        <activity android:name=".splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.SignUpActivity" />
-        <activity android:name=".activities.SignInActivity" />
+        <activity android:name=".register.SignUpActivity" />
+        <activity android:name=".login.SignInActivity" />
         <activity android:name=".dashboard.HomeActivity" />
     </application>
 

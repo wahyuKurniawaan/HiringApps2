@@ -37,11 +37,9 @@ class KeySharedPreferences {
     companion object {
 
         const val PREF_IS_LOGIN = "PREF_IS_LOGIN"
-        const val PREF_USERNAME = "PREF_USERNAME"
         const val PREF_PASSWORD = "PREF_PASSWORD"
         const val PREF_EMAIL = "PREF_EMAIL"
-        const val PREF_FIRST_NAME = "PREF_FIRST_NAME"
-        const val PREF_LAST_NAME = "PREF_LAST_NAME"
+        const val PREF_FULL_NAME = "PREF_FULL_NAME"
         const val PREF_TOKEN = "PREF_TOKEN"
     }
 }

@@ -18,6 +18,6 @@
     </fragment>
     <activity
         android:id="@+id/signInActivity"
-        android:name="com.wahyu.hiringapps2.activities.SignInActivity"
+        android:name="com.wahyu.hiringapps2.login.SignInActivity"
         android:label="SignInActivity" />
 </navigation>

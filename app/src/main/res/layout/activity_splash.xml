@@ -9,7 +9,7 @@
         android:padding="@dimen/_8sdp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activities.SplashActivity"
+        tools:context=".splash.SplashActivity"
         android:orientation="vertical"
         android:background="@android:color/white">
 
