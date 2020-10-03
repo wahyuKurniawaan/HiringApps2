@@ -53,7 +53,6 @@ class HomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
         (requireActivity() as AppCompatActivity)
             .setSupportActionBar(binding.topToolbar)
-        useRetrofitToCallAPI()
         return binding.root
     }
 
@@ -89,9 +88,10 @@ class HomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         }
     }
 
-    private fun useRetrofitToCallAPI() {
+    private fun useRetrofitToCallAPI(jobTitle: String) {
         binding.progressBar.visibility = View.VISIBLE
         val okHttpClient = OkHttpClient.Builder().addInterceptor(HeaderInterceptor(this.requireContext())).build()
+        val getService =
         Log.d("test", "token = ${KeySharedPreferences.PREF_TOKEN}")
         Log.d("test", "token = ${sharedPref.getString(KeySharedPreferences.PREF_TOKEN)}")
         val retrofit = Retrofit.Builder()
@@ -101,26 +101,53 @@ class HomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
             .build()
         val service = retrofit.create(HomeApiService::class.java)
 
-        service.getProfileJobSeekerRequest().enqueue(object : Callback<HomeResponse> {
-            override fun onFailure(call: Call<HomeResponse>, t: Throwable) {
-                binding.progressBar.visibility = View.GONE
-                Log.d("test, on failure = ", t.message ?: "error")
+        if (jobTitle.equals("Web Developer")) {
+            service.getProfileJobSeekerByJobTitleRequest(jobTitle).enqueue(object : Callback<HomeResponse> {
+                override fun onFailure(call: Call<HomeResponse>, t: Throwable) {
+                    binding.progressBar.visibility = View.GONE
+                    Log.d("test, on failure = ", t.message ?: "error")
 
-            }
+                }
 
-            override fun onResponse(
-                call: Call<HomeResponse>,
-                response: Response<HomeResponse>
-            ) {
-                binding.progressBar.visibility = View.GONE
-                val list = response.body()?.data?.map {
-                    HomeModel(it.id, it.idAccount, it.idPortofolio, it.idSkill, it.email, it.name, it.jobTitle, it.statusJob,
-                        it.address, it.city, it.workplace, it.image, it.description, it.createdAt, it.updatedAt)
-                } ?: listOf()
-                (binding.recycleView.adapter as HomeAdapter).addList(list)
-                Log.d("test", "response = ${response.body()}")
-            }
-        })
+                override fun onResponse(
+                    call: Call<HomeResponse>,
+                    response: Response<HomeResponse>
+                ) {
+                    binding.progressBar.visibility = View.GONE
+                    val list = response.body()?.data?.map {
+                        HomeModel(it.id, it.idAccount, it.idPortofolio, it.idSkill, it.email, it.name, it.jobTitle, it.statusJob,
+                            it.address, it.city, it.workplace, it.image, it.description, it.createdAt, it.updatedAt)
+                    } ?: listOf()
+
+                    (binding.recycleView.adapter as HomeAdapter).addList(list)
+                    Log.d("test", "response = ${response.body()}")
+                }
+            })
+        } else {
+            service.getProfileJobSeekerByJobTitleRequest(jobTitle).enqueue(object : Callback<HomeResponse> {
+                override fun onFailure(call: Call<HomeResponse>, t: Throwable) {
+                    binding.progressBar.visibility = View.GONE
+                    Log.d("test, on failure = ", t.message ?: "error")
+
+                }
+
+                override fun onResponse(
+                    call: Call<HomeResponse>,
+                    response: Response<HomeResponse>
+                ) {
+                    binding.progressBar.visibility = View.GONE
+                    val list = response.body()?.data?.map {
+                        HomeModel(it.id, it.idAccount, it.idPortofolio, it.idSkill, it.email, it.name, it.jobTitle, it.statusJob,
+                            it.address, it.city, it.workplace, it.image, it.description, it.createdAt, it.updatedAt)
+                    } ?: listOf()
+
+                    (binding.recycleView.adapter as HomeAdapter).addList(list)
+                    Log.d("test", "response = ${response.body()}")
+                }
+            })
+        }
+
+
         Log.d("test", "service = " + service.getProfileJobSeekerRequest().toString())
 
     }
@@ -130,9 +157,12 @@ class HomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         Log.d("spinner-home", "get text = $text")
         when (text) {
             "Android Developer" -> {
+                useRetrofitToCallAPI(text)
                 Log.d("spinner-home", "android developer selected = $text")
             }
             else -> {
+                useRetrofitToCallAPI(text)
+                Log.d("spinner-home", "android developer selected = $text")
             }
         }
     }
