@@ -7,5 +7,12 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="cardViewStyle">@style/CardView</item>
     </style>
+    
+    <style name="SpinnerToolbar" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:textColor">@color/colorTextIcons</item>
+        <item name="fontFamily">@font/ubuntu_bold</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:spinnerItemStyle">@style/SpinnerToolbar</item>
+    </style>
 
 </resources>

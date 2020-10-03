@@ -154,10 +154,8 @@
                             android:layout_height="@dimen/_30sdp"
                             android:layout_marginStart="@dimen/_8sdp"
                             android:layout_marginEnd="@dimen/_8sdp"
-                            android:background="@null"
-                            android:fontFamily="@font/ubuntu_regular"
-                            android:textColor="@color/colorPrimaryText"
-                            android:textSize="@dimen/_13ssp" />
+                            android:theme="@style/ThemeOverlay.AppCompat.Light"
+                            android:entries="@array/role_accounts" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -171,51 +169,30 @@
                             android:textColor="@color/colorPrimaryText"
                             android:textSize="@dimen/_11ssp" />
 
-                        <EditText
-                            android:id="@+id/et_password"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_30sdp"
-                            android:layout_marginStart="@dimen/_8sdp"
-                            android:layout_marginEnd="@dimen/_8sdp"
-                            android:background="@null"
-                            android:fontFamily="@font/ubuntu_regular"
-                            android:hint="@string/password_hint"
-                            android:imeOptions="actionNext"
-                            android:importantForAutofill="no"
-                            android:includeFontPadding="false"
-                            android:inputType="textPassword"
-                            android:textColor="@color/colorPrimaryText"
-                            android:textColorHint="@color/colorHintText"
-                            android:textSize="@dimen/_13ssp" />
-
-                        <TextView
+                        <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_8sdp"
-                            android:layout_marginTop="@dimen/_8sdp"
                             android:layout_marginEnd="@dimen/_8sdp"
-                            android:fontFamily="@font/ubuntu_regular"
-                            android:includeFontPadding="false"
-                            android:text="@string/confirm_password"
-                            android:textColor="@color/colorPrimaryText"
-                            android:textSize="@dimen/_11ssp" />
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            app:passwordToggleEnabled="true">
 
-                        <EditText
-                            android:id="@+id/et_confirm_password"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_30sdp"
-                            android:layout_marginStart="@dimen/_8sdp"
-                            android:layout_marginEnd="@dimen/_8sdp"
-                            android:background="@null"
-                            android:fontFamily="@font/ubuntu_regular"
-                            android:hint="@string/password_hint"
-                            android:imeOptions="actionDone"
-                            android:importantForAutofill="no"
-                            android:includeFontPadding="false"
-                            android:inputType="textPassword"
-                            android:textColor="@color/colorPrimaryText"
-                            android:textColorHint="@color/colorHintText"
-                            android:textSize="@dimen/_13ssp" />
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_password"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:fontFamily="@font/ubuntu_regular"
+                                android:hint="@string/enter_password"
+                                android:imeOptions="actionNext"
+                                android:importantForAutofill="no"
+                                android:includeFontPadding="false"
+                                android:inputType="textPassword"
+                                android:textColor="@color/colorPrimaryText"
+                                android:textColorHint="@color/colorHintText"
+                                android:textSize="@dimen/_13ssp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
 
                     </LinearLayout>
 

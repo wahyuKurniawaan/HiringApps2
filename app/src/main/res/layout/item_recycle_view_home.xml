@@ -6,9 +6,9 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_8sdp">
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:padding="@dimen/_8sdp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardSignIn"
@@ -28,6 +28,13 @@
                 android:orientation="vertical"
                 android:padding="@dimen/_4sdp">
 
+                <ImageView
+                    android:id="@+id/iv_image"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/profile_image" />
+
                 <TextView
                     android:id="@+id/tv_name"
                     android:layout_width="match_parent"
@@ -36,53 +43,28 @@
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:fontFamily="@font/ubuntu_regular"
+                    android:gravity="center"
                     android:includeFontPadding="false"
                     android:text="@string/name"
                     android:textColor="@color/colorPrimaryText"
                     android:textSize="@dimen/_18ssp" />
 
                 <TextView
-                    android:id="@+id/tv_description"
+                    android:id="@+id/tv_job_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:fontFamily="@font/ubuntu_regular"
+                    android:gravity="center"
                     android:includeFontPadding="false"
-                    android:text="@string/description"
+                    android:text="@string/job_title"
                     android:textColor="@color/colorSecondaryText"
                     android:textSize="@dimen/_12ssp"
                     tools:ignore="LabelFor" />
 
-                <TextView
-                    android:id="@+id/tv_price"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:fontFamily="@font/ubuntu_regular"
-                    android:includeFontPadding="false"
-                    android:text="@string/price"
-                    android:textColor="@color/colorSecondaryText"
-                    android:textSize="@dimen/_12ssp" />
-
-                <TextView
-                    android:id="@+id/tv_duration"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:fontFamily="@font/ubuntu_regular"
-                    android:includeFontPadding="false"
-                    android:text="@string/duration"
-                    android:textColor="@color/colorSecondaryText"
-                    android:textSize="@dimen/_12ssp" />
-
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

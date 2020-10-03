@@ -3,13 +3,13 @@ package com.wahyu.hiringapps2.dashboard
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.wahyu.hiringapps2.util.BaseActivity
 import com.wahyu.hiringapps2.R
-import com.wahyu.hiringapps2.databinding.ActivityMainBinding
-import com.wahyu.hiringapps2.dashboard.fragment.HomeFragment
 import com.wahyu.hiringapps2.dashboard.fragment.OffersFragment
 import com.wahyu.hiringapps2.dashboard.fragment.ProfileFragment
 import com.wahyu.hiringapps2.dashboard.fragment.ProjectsFragment
+import com.wahyu.hiringapps2.dashboard.home.HomeFragment
+import com.wahyu.hiringapps2.databinding.ActivityMainBinding
+import com.wahyu.hiringapps2.util.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class HomeActivity : BaseActivity() {

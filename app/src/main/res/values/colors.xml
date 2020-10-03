@@ -8,5 +8,6 @@
     <color name="colorDivider">#BDBDBD</color>
     <color name="colorTextIcons">#FFFFFF</color>
     <color name="colorBackground">#FAFAFA</color>
+    <color name="colorShadowBackground">#FBFBFB</color>
     <color name="colorHintText">#BDBDBD</color>
 </resources>

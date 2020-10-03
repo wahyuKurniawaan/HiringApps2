@@ -23,15 +23,14 @@ class SignUpActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
     private lateinit var coroutineScope: CoroutineScope
 
     override fun initView() {
-        ArrayAdapter.createFromResource(
+        val adapter = ArrayAdapter.createFromResource(
             this,
             R.array.role_accounts,
             android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             binding.spinner.adapter = adapter
         }
-    }
 
     override fun initListener() {
         binding.spinner.onItemSelectedListener = this
@@ -61,7 +60,6 @@ class SignUpActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
     }
 
     override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-        val role = parent.getItemAtPosition(position)
     }
 
     override fun onNothingSelected(parent: AdapterView<*>) {
