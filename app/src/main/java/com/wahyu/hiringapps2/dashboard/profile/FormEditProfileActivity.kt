@@ -1,4 +1,4 @@
-package com.wahyu.hiringapps2.dashboard
+package com.wahyu.hiringapps2.dashboard.profile
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil

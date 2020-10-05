@@ -1,16 +1,16 @@
-package com.wahyu.hiringapps2.room
+package com.wahyu.hiringapps2.dashboard.profile.room
 
 import android.app.Activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.wahyu.hiringapps2.R
-import com.wahyu.hiringapps2.databinding.ActivityAddWordBinding
+import com.wahyu.hiringapps2.databinding.ActivityAddNoteBinding
 import kotlinx.coroutines.*
 
-class AddWordActivity : AppCompatActivity() {
+class AddNoteActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityAddWordBinding
+    private lateinit var binding: ActivityAddNoteBinding
     private lateinit var coroutineScope: CoroutineScope
 
     companion object {
@@ -19,15 +19,15 @@ class AddWordActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_add_word)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_add_note)
         coroutineScope = CoroutineScope(Job() + Dispatchers.IO)
 
-        val wordDao = WordRoomDatabase.getWordDatabase(this).wordDao()
+        val wordDao = NoteRoomDatabase.getWordDatabase(this).wordDao()
 
-        binding.btnSave.setOnClickListener {
-            if (binding.etInputWord.text.isNotEmpty()) {
+        binding.buttonAddNote.setOnClickListener {
+            if (binding.etInputNoteTitle.text.isNotEmpty()) {
                 coroutineScope.launch {
-                    wordDao.insert(WordRoomEntity(binding.etInputWord.text.toString(), System.currentTimeMillis()))
+                    wordDao.insert(NoteRoomEntity(binding.etInputNoteTitle.text.toString(), System.currentTimeMillis()))
                 }
                 setResult(Activity.RESULT_OK)
                 finish()

@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.wahyu.hiringapps2.R
-import com.wahyu.hiringapps2.auth.ApiClient
+import com.wahyu.hiringapps2.util.ApiClient
 import com.wahyu.hiringapps2.dashboard.HomeActivity
 import com.wahyu.hiringapps2.databinding.ActivitySignInBinding
 import com.wahyu.hiringapps2.register.SignUpActivity

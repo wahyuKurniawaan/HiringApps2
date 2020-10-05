@@ -1,4 +1,4 @@
-package com.wahyu.hiringapps2.retrofit
+package com.wahyu.hiringapps2.dashboard.project
 
 data class ProjectModel(val id: Int?,
                         val name: String?,

@@ -8,7 +8,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import com.wahyu.hiringapps2.R
-import com.wahyu.hiringapps2.auth.ApiClient
+import com.wahyu.hiringapps2.util.ApiClient
 import com.wahyu.hiringapps2.databinding.ActivitySignUpBinding
 import com.wahyu.hiringapps2.login.SignInActivity
 import com.wahyu.hiringapps2.util.BaseActivity

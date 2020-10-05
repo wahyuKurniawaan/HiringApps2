@@ -1,4 +1,4 @@
-package com.wahyu.hiringapps2.auth
+package com.wahyu.hiringapps2.util
 
 import android.content.Context
 import okhttp3.OkHttpClient

@@ -1,9 +1,7 @@
-package com.wahyu.hiringapps2.auth
+package com.wahyu.hiringapps2.util
 
 import android.content.Context
 import android.util.Log
-import com.wahyu.hiringapps2.util.KeySharedPreferences
-import com.wahyu.hiringapps2.util.SharedPreferencesUtil
 import okhttp3.Interceptor
 import okhttp3.Response
 

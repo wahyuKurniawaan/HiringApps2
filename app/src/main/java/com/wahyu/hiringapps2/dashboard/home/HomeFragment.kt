@@ -13,9 +13,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wahyu.hiringapps2.R
-import com.wahyu.hiringapps2.auth.ApiClient
-import com.wahyu.hiringapps2.auth.HeaderInterceptor
 import com.wahyu.hiringapps2.databinding.FragmentHomeBinding
+import com.wahyu.hiringapps2.util.ApiClient
+import com.wahyu.hiringapps2.util.HeaderInterceptor
 import com.wahyu.hiringapps2.util.KeySharedPreferences
 import com.wahyu.hiringapps2.util.SharedPreferencesUtil
 import kotlinx.coroutines.*
@@ -40,8 +40,10 @@ class HomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         // Inflate the layout for this fragment
         sharedPref = SharedPreferencesUtil(requireContext())
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+
         binding.recycleView.adapter = HomeAdapter()
         binding.recycleView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+
         val adapter = ArrayAdapter.createFromResource(
             this.requireContext(),
             R.array.job_titles,
@@ -91,7 +93,6 @@ class HomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private fun useRetrofitToCallAPI(jobTitle: String) {
         binding.progressBar.visibility = View.VISIBLE
         val okHttpClient = OkHttpClient.Builder().addInterceptor(HeaderInterceptor(this.requireContext())).build()
-        val getService =
         Log.d("test", "token = ${KeySharedPreferences.PREF_TOKEN}")
         Log.d("test", "token = ${sharedPref.getString(KeySharedPreferences.PREF_TOKEN)}")
         val retrofit = Retrofit.Builder()
@@ -167,6 +168,5 @@ class HomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         }
     }
 
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-    }
+    override fun onNothingSelected(p0: AdapterView<*>?) {}
 }

@@ -1,4 +1,4 @@
-package com.wahyu.hiringapps2.dashboard.fragment
+package com.wahyu.hiringapps2.dashboard.profile
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,12 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.wahyu.hiringapps2.R
+import com.wahyu.hiringapps2.dashboard.profile.room.NoteListActivity
 import com.wahyu.hiringapps2.login.SignInActivity
-import com.wahyu.hiringapps2.auth.LoginWithAuthActivity
-import com.wahyu.hiringapps2.dashboard.FormEditProfileActivity
-import com.wahyu.hiringapps2.dashboard.WebViewActivity
-import com.wahyu.hiringapps2.retrofit.LearnRetrofitActivity
-import com.wahyu.hiringapps2.room.WordListActivity
 import com.wahyu.hiringapps2.util.SharedPreferencesUtil
 
 class ProfileFragment : Fragment() {
@@ -76,19 +72,7 @@ class ProfileFragment : Fragment() {
             }
 
             R.id.nav_test_room -> {
-                val intent = Intent(activity, WordListActivity::class.java)
-                startActivity(intent)
-                true
-            }
-
-            R.id.nav_test_retrofit -> {
-                val intent = Intent(activity, LearnRetrofitActivity::class.java)
-                startActivity(intent)
-                true
-            }
-
-            R.id.nav_test_login_api -> {
-                val intent = Intent(activity, LoginWithAuthActivity::class.java)
+                val intent = Intent(activity, NoteListActivity::class.java)
                 startActivity(intent)
                 true
             }

@@ -7,7 +7,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".room.WordListActivity">
+        tools:context=".dashboard.profile.room.NoteListActivity">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_words"
@@ -23,7 +23,20 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:tint="@color/colorTextIcons"
-            android:backgroundTint="@color/colorPrimary"/>
+            android:backgroundTint="@color/colorPrimary"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_delete_all_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            android:src="@drawable/ic_round_remove_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:tint="@color/colorTextIcons"
+            android:backgroundTint="@color/colorPrimary"
+            tools:ignore="UnusedAttribute" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

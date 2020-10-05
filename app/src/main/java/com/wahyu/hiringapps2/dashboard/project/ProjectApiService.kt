@@ -1,4 +1,4 @@
-package com.wahyu.hiringapps2.retrofit
+package com.wahyu.hiringapps2.dashboard.project
 
 import retrofit2.Call
 import retrofit2.http.GET

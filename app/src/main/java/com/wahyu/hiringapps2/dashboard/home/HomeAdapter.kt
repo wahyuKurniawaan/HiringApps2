@@ -4,12 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import com.wahyu.hiringapps2.R
 import com.wahyu.hiringapps2.databinding.ItemRecycleViewHomeBinding
 
 class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
 
     private val items = mutableListOf<HomeModel>()
+
+    private fun getPhotoImage(file: String) : String = "http://34.234.66.114:8080/uploads/$file"
 
     fun addList(list: List<HomeModel>) {
         items.clear()
@@ -27,6 +30,8 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
         val item = items[position]
         holder.binding.tvName.text = item.name
         holder.binding.tvJobTitle.text = item.jobTitle
+        Picasso.get().load(getPhotoImage(item.image.toString())).
+            into(holder.binding.ivImage)
     }
 
     override fun getItemCount(): Int = items.size

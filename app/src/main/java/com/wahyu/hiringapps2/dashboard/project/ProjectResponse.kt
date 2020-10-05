@@ -1,4 +1,4 @@
-package com.wahyu.hiringapps2.retrofit
+package com.wahyu.hiringapps2.dashboard.project
 
 import com.google.gson.annotations.SerializedName
 

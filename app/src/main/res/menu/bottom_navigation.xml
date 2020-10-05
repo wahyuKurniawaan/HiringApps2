@@ -7,9 +7,9 @@
         android:title="@string/home"/>
 
     <item
-        android:id="@+id/bottom_nav_offers"
-        android:icon="@drawable/ic_business_offers"
-        android:title="@string/offers"/>
+        android:id="@+id/bottom_nav_search"
+        android:icon="@drawable/ic_round_search_24"
+        android:title="@string/search"/>
 
     <item
         android:id="@+id/bottom_nav_projects"

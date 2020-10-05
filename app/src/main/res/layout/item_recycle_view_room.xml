@@ -1,54 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/_12sdp"
-    android:padding="@dimen/_8sdp"
-    android:background="@color/colorAccent"
-    android:orientation="horizontal">
+<layout>
 
-    <TextView
-        android:id="@+id/tv_number_position"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_2sdp"
-        android:gravity="center"
-        android:paddingLeft="@dimen/_10sdp"
-        android:paddingRight="@dimen/_10sdp"
-        android:text="@string/_0"
-        android:textColor="@color/colorTextIcons"
-        android:textSize="@dimen/_24ssp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:padding="@dimen/_8sdp">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/tv_name_item"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:paddingLeft="@dimen/_10sdp"
-        android:paddingRight="@dimen/_10sdp"
-        android:text="@string/name"
-        android:textColor="@color/colorTextIcons"
-        android:textSize="@dimen/_24ssp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_number_position"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="LabelFor"
-        android:layout_marginLeft="@dimen/_8sdp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_create_at"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/date_time_hint"
-        android:textColor="@color/colorTextIcons"
-        android:textSize="@dimen/_12ssp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/tv_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_8sdp"
+                        android:fontFamily="@font/ubuntu_bold"
+                        android:includeFontPadding="false"
+                        android:text="@string/_0"
+                        android:textColor="@color/colorTextIcons"
+                        android:textSize="@dimen/_18ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_note_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/ubuntu_bold"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:text="@string/note_title"
+                        android:textColor="@color/colorTextIcons"
+                        android:textSize="@dimen/_18ssp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_note_body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:includeFontPadding="false"
+                    android:text="@string/note_body"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="@dimen/_16ssp" />
+
+                <TextView
+                    android:id="@+id/tv_created_at"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:gravity="end"
+                    android:includeFontPadding="false"
+                    android:text="@string/_08_march_1997"
+                    android:textColor="@color/colorSecondaryText"
+                    android:textSize="@dimen/_12ssp"
+                    tools:ignore="LabelFor" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

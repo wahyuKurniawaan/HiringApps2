@@ -1,32 +1,38 @@
-package com.wahyu.hiringapps2.retrofit
+package com.wahyu.hiringapps2.dashboard.project
 
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
+import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.wahyu.hiringapps2.R
-import com.wahyu.hiringapps2.databinding.ActivityLearnRetrofitBinding
+import com.wahyu.hiringapps2.databinding.FragmentProjectsBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class LearnRetrofitActivity : AppCompatActivity() {
+class ProjectsFragment : Fragment() {
 
-    private lateinit var binding: ActivityLearnRetrofitBinding
+    private lateinit var binding: FragmentProjectsBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_learn_retrofit)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_projects, container, false)
 
-        binding.rvProject.adapter = ProjectAdapter()
-        binding.rvProject.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        binding.recycleView.adapter = ProjectAdapter()
+        binding.recycleView.layoutManager = LinearLayoutManager(requireActivity(), RecyclerView.VERTICAL, false)
 
         useRetrofitToCallAPI()
+        return binding.root
     }
 
     private fun useRetrofitToCallAPI() {
@@ -52,7 +58,7 @@ class LearnRetrofitActivity : AppCompatActivity() {
                 val list = response.body()?.data?.map {
                     ProjectModel(it.id, it.name, it.description, it.price, it.duration)
                 } ?: listOf()
-                (binding.rvProject.adapter as ProjectAdapter).addList(list)
+                (binding.recycleView.adapter as ProjectAdapter).addList(list)
             }
         })
         Log.d("test", "service = " + service.getAllProjectData().toString())
