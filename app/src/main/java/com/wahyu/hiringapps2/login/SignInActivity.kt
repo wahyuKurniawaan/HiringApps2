@@ -7,10 +7,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.wahyu.hiringapps2.R
-import com.wahyu.hiringapps2.util.ApiClient
 import com.wahyu.hiringapps2.dashboard.HomeActivity
 import com.wahyu.hiringapps2.databinding.ActivitySignInBinding
 import com.wahyu.hiringapps2.register.SignUpActivity
+import com.wahyu.hiringapps2.util.ApiClient
 import com.wahyu.hiringapps2.util.BaseActivity
 import com.wahyu.hiringapps2.util.KeySharedPreferences
 import com.wahyu.hiringapps2.util.SharedPreferencesUtil
@@ -31,6 +31,7 @@ class SignInActivity : BaseActivity() {
 
     override fun initListener() {
         binding.buttonSignIn.setOnClickListener {
+            sharedPref.put(KeySharedPreferences.PREF_EMAIL, binding.etInputEmail.text.toString())
             callSignInApi()
         }
 

@@ -83,6 +83,16 @@
     <string name="no_search_result">No Search Result</string>
     <string name="choose_a_sort_method">Choose a sort method</string>
     <string name="search">Search</string>
+    <string name="location_image">Location Image</string>
+    <string name="city">City</string>
+    <string name="enter_email_address">Enter Email Address</string>
+    <string name="company">Company</string>
+    <string name="enter_company_name">Enter Company Name</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="role_job">Role Job</string>
+    <string name="enter_role_job_in_the_company">Enter Role Job In The Company</string>
+    <string name="instagram">Instagram</string>
+    <string name="linkedin">Linkedin</string>
 
     <string-array name="role_accounts">
         <item>recruiter</item>

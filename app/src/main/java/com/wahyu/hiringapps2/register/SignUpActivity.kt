@@ -4,36 +4,25 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import com.wahyu.hiringapps2.R
-import com.wahyu.hiringapps2.util.ApiClient
 import com.wahyu.hiringapps2.databinding.ActivitySignUpBinding
 import com.wahyu.hiringapps2.login.SignInActivity
+import com.wahyu.hiringapps2.util.ApiClient
 import com.wahyu.hiringapps2.util.BaseActivity
 import com.wahyu.hiringapps2.util.KeySharedPreferences
 import com.wahyu.hiringapps2.util.SharedPreferencesUtil
 import kotlinx.coroutines.*
 
-class SignUpActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
+class SignUpActivity : BaseActivity() {
 
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var sharedPref: SharedPreferencesUtil
     private lateinit var coroutineScope: CoroutineScope
 
-    override fun initView() {
-        val adapter = ArrayAdapter.createFromResource(
-            this,
-            R.array.role_accounts,
-            android.R.layout.simple_spinner_item
-        )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            binding.spinner.adapter = adapter
-        }
+    override fun initView() {}
 
     override fun initListener() {
-        binding.spinner.onItemSelectedListener = this
 
         binding.buttonSignUp.setOnClickListener {
             callSignInApi()
@@ -59,11 +48,6 @@ class SignUpActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
         sharedPref.put(KeySharedPreferences.PREF_PASSWORD, password)
     }
 
-    override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-    }
-
-    override fun onNothingSelected(parent: AdapterView<*>) {
-    }
 
     private fun callSignInApi() {
         binding.progressBar.visibility = View.VISIBLE
@@ -77,23 +61,23 @@ class SignUpActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
                         binding.etFullName.text.toString(),
                         binding.etEmail.text.toString(),
                         binding.etPassword.text.toString(),
-                        binding.spinner.selectedItem.toString()
+                        binding.etCompanyName.text.toString(),
+                        binding.etRoleJob.text.toString(),
+                        binding.etPhoneNumber.text.toString()
                     )
                 } catch (e: Throwable) {
                     e.printStackTrace()
                 }
             }
-
+            Log.d("response = ", "$response")
             if (response is SignUpResponse) {
                 binding.progressBar.visibility = View.GONE
 
                 if (response.success) {
-                    Log.d("register", "response $response")
                     val intent = Intent(this@SignUpActivity, SignInActivity::class.java)
                     intent.putExtra(KeyExtraIntent.EXTRA_EMAIL, "${binding.etEmail.editableText}")
                     intent.putExtra(
-                        KeyExtraIntent.EXTRA_PASSWORD,
-                        "${binding.etPassword.editableText}"
+                        KeyExtraIntent.EXTRA_PASSWORD, "${binding.etPassword.editableText}"
                     )
                     saveSession(
                         binding.etEmail.editableText.toString(),
@@ -104,11 +88,11 @@ class SignUpActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
                         binding.etFullName.editableText.toString()
                     )
                     startActivity(intent)
-                } else {
-                    setErrorDialog("Error Register!", response.message)
                 }
-
+            } else if (response is Throwable) {
+                setErrorDialog("Error Register!", response.message)
             }
+            binding.progressBar.visibility = View.GONE
         }
     }
 

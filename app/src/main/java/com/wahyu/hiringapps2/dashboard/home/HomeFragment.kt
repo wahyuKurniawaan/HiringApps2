@@ -16,7 +16,6 @@ import com.wahyu.hiringapps2.R
 import com.wahyu.hiringapps2.databinding.FragmentHomeBinding
 import com.wahyu.hiringapps2.util.ApiClient
 import com.wahyu.hiringapps2.util.HeaderInterceptor
-import com.wahyu.hiringapps2.util.KeySharedPreferences
 import com.wahyu.hiringapps2.util.SharedPreferencesUtil
 import kotlinx.coroutines.*
 import okhttp3.OkHttpClient
@@ -59,24 +58,18 @@ class HomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
     }
 
     private fun callSignApi() {
-        Log.d("hometest","callSignApi() is running")
         val service = ApiClient.getApiClient(this.requireContext())?.create(HomeApiService::class.java)
-        Log.d("hometest","val service")
         coroutineScope = CoroutineScope(Job() + Dispatchers.Main)
         coroutineScope.launch {
-            Log.d("hometest","coroutine launched")
             val response = withContext(Dispatchers.IO) {
-                Log.d("hometest", "callApi : ${Thread.currentThread().name}")
                 try {
                     service?.getProfileJobSeekerRequest()
-                    Log.d("hometest","try service")
                 } catch (e: Throwable) {
                     e.printStackTrace()
                 }
             }
-            Log.d("hometest","response = $response")
+            Log.d("home", response.toString())
             if (response is HomeResponse) {
-                Log.d("hometest", "data = ${response.data}")
                 if (response.success) {
                     val list = response.data.map {
                         HomeModel(it.id, it.idAccount, it.idPortofolio, it.idSkill, it.email, it.name, it.jobTitle, it.statusJob,
@@ -93,8 +86,6 @@ class HomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private fun useRetrofitToCallAPI(jobTitle: String) {
         binding.progressBar.visibility = View.VISIBLE
         val okHttpClient = OkHttpClient.Builder().addInterceptor(HeaderInterceptor(this.requireContext())).build()
-        Log.d("test", "token = ${KeySharedPreferences.PREF_TOKEN}")
-        Log.d("test", "token = ${sharedPref.getString(KeySharedPreferences.PREF_TOKEN)}")
         val retrofit = Retrofit.Builder()
             .client(okHttpClient)
             .baseUrl("http://34.234.66.114:8080/")
@@ -102,12 +93,11 @@ class HomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
             .build()
         val service = retrofit.create(HomeApiService::class.java)
 
-        if (jobTitle.equals("Web Developer")) {
+        if (jobTitle == "Web Developer") {
             service.getProfileJobSeekerByJobTitleRequest(jobTitle).enqueue(object : Callback<HomeResponse> {
                 override fun onFailure(call: Call<HomeResponse>, t: Throwable) {
                     binding.progressBar.visibility = View.GONE
                     Log.d("test, on failure = ", t.message ?: "error")
-
                 }
 
                 override fun onResponse(

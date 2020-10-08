@@ -57,11 +57,9 @@ abstract class BaseActivity: AppCompatActivity() {
     class KeyExtraIntent {
 
         companion object {
-
-            const val EXTRA_FIRST_NAME = "EXTRA_FIRST_NAME"
-            const val EXTRA_LAST_NAME = "EXTRA_LAST_NAME"
             const val EXTRA_EMAIL = "EXTRA_EMAIL"
             const val EXTRA_PASSWORD = "EXTRA_PASSWORD"
+            const val EXTRA_USER_ID = "EXTRA_USER_ID"
         }
     }
 }

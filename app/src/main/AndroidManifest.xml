@@ -13,10 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".auth.LoginWithAuthActivity"></activity>
+        <activity android:name=".dashboard.home.detail.DetailProfileActivity"></activity>
+        <activity android:name=".auth.LoginWithAuthActivity" />
         <activity android:name=".retrofit.LearnRetrofitActivity" />
-        <activity android:name="com.wahyu.hiringapps2.dashboard.profile.room.NoteListActivity" />
-        <activity android:name="com.wahyu.hiringapps2.dashboard.profile.room.AddNoteActivity" />
+        <activity android:name=".dashboard.profile.room.NoteListActivity" />
+        <activity android:name=".dashboard.profile.room.AddNoteActivity" />
         <activity android:name=".dashboard.profile.FormEditProfileActivity" />
         <activity android:name=".dashboard.profile.WebViewActivity" />
         <activity android:name=".onBoard.OnBoardActivity" />
