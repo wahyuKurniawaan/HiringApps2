@@ -9,12 +9,12 @@ import com.wahyu.hiringapps2.R
 import com.wahyu.hiringapps2.databinding.ItemRecycleViewProjectFromApiBinding
 import java.text.DecimalFormat
 
-class ProjectAdapter : RecyclerView.Adapter<ProjectAdapter.ProjectHolder>() {
+class ProjectsAdapter : RecyclerView.Adapter<ProjectsAdapter.ProjectHolder>() {
 
-    private val items = mutableListOf<ProjectModel>()
+    private val items = mutableListOf<ProjectsModel>()
     private val dec = DecimalFormat("#,###")
 
-    fun addList(list: List<ProjectModel>) {
+    fun addList(list: List<ProjectsModel>) {
         items.clear()
         items.addAll(list)
         notifyDataSetChanged()
