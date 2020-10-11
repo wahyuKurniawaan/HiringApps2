@@ -38,6 +38,7 @@ class ProjectsPresenter(private val coroutineScope: CoroutineScope, private val 
 
                     override fun onFailure(call: Call<ProjectsResponse>, t: Throwable) {
                         Log.d("android1", "error : ${t.printStackTrace()}")
+                        Log.d("android1", "error : ${t.message}")
                     }
 
                 })

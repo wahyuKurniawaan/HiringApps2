@@ -2,7 +2,7 @@ package com.wahyu.hiringapps2.dashboard.search
 
 import com.google.gson.annotations.SerializedName
 
-data class SearchResponse(val success: Boolean, val message: String?, val data: List<DataResult>) {
+data class SearchResponse(val success: Boolean, val message: String?, val data: List<DataResult>?) {
 
     data class DataResult(
         @SerializedName("id_profile_job_seeker") val id: Int?,

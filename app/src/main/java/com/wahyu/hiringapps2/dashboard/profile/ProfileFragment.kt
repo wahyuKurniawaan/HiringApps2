@@ -2,12 +2,12 @@ package com.wahyu.hiringapps2.dashboard.profile
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
 import com.wahyu.hiringapps2.R
 import com.wahyu.hiringapps2.dashboard.profile.room.NoteListActivity
@@ -15,15 +15,12 @@ import com.wahyu.hiringapps2.databinding.FragmentProfileBinding
 import com.wahyu.hiringapps2.login.SignInActivity
 import com.wahyu.hiringapps2.util.ApiClient
 import com.wahyu.hiringapps2.util.SharedPreferencesUtil
-import kotlinx.coroutines.*
-import retrofit2.Call
-import retrofit2.Response
 
 class ProfileFragment : Fragment() {
 
     private lateinit var sharedPref: SharedPreferencesUtil
     private lateinit var binding: FragmentProfileBinding
-    private lateinit var coroutineScope: CoroutineScope
+    private lateinit var viewModel: ProfileViewModel
     private fun getPhotoImage(file: String) : String = "http://34.234.66.114:8080/uploads/$file"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,8 +36,16 @@ class ProfileFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
         sharedPref = SharedPreferencesUtil(requireContext())
 
+        val service = ApiClient.getApiClient(this.requireContext())?.create(ProfileApiService::class.java)
+        viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
+        viewModel.setSharedPref(sharedPref)
+        if (service != null) {
+            viewModel.setProfileService(service)
+        }
+
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.topToolbar)
-        callSignApi()
+        viewModel.callProfileApi()
+        subscribeLiveData()
         return binding.root
     }
 
@@ -83,40 +88,26 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun callSignApi() {
-        val service = ApiClient.getApiClient(this.requireContext())?.create(ProfileApiService::class.java)
-        coroutineScope = CoroutineScope(Job() + Dispatchers.Main)
-        coroutineScope.launch {
-            val response = withContext(Dispatchers.IO) {
-                try {
-                    service?.getProfileRecruiterByEmailRequest("wahyukurniawaan@gmail.com")?.enqueue(object :
-                        retrofit2.Callback<ProfileResponse> {
-                        override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
-                            Log.d("onFailure", t.message.toString())
-                            Log.d("profile", call.toString())
-                        }
+    private fun subscribeLiveData() {
+        viewModel.isLoadingLiveData.observe(viewLifecycleOwner, {
+            binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
+        })
 
-                        override fun onResponse(call: Call<ProfileResponse>, response: Response<ProfileResponse>) {
-                            Log.d("onResponse", response.toString())
-                            Log.d("profile", response.body()?.data.toString())
-                            Log.d("profile", response.body()?.data!![0].name!!)
-                            binding.tvName.text = response.body()?.data!![0].name!!
-                            Picasso.get().load(getPhotoImage(response.body()?.data!![0].profileImage!!)).into(binding.imageProfile)
-                            binding.tvJobTitle.text = response.body()?.data!![0].roleJob!!
-                            binding.tvCity.text = response.body()?.data!![0].city!!
-                            binding.tvDescription.text = response.body()?.data!![0].description!!
-                            binding.tvEmail.text = response.body()?.data!![0].email!!
-                            binding.tvInstagram.text = response.body()?.data!![0].instagramLink!!
-                            binding.tvLinkedin.text = response.body()?.data!![0].linkedinLink!!
-
-                        }
-                    })
-                } catch (e: Throwable) {
-                    e.printStackTrace()
-                }
+        viewModel.isProfileLiveData.observe(viewLifecycleOwner, {
+            if (it) {
+                val data = viewModel.listLiveData.value?.firstOrNull()
+                binding.tvName.text = data?.name
+                Picasso.get().load(getPhotoImage(data?.profileImage!!)).into(binding.imageProfile)
+                binding.tvJobTitle.text = data.roleJob
+                binding.tvCity.text = data.city
+                binding.tvDescription.text = data.description
+                binding.tvEmail.text = data.email
+                binding.tvInstagram.text = data.instagramLink
+                binding.tvLinkedin.text = data.linkedinLink
+            } else {
+                Toast.makeText(this.requireContext(), "error", Toast.LENGTH_SHORT).show()
             }
-        }
+        })
     }
-
 
 }

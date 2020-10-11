@@ -207,11 +207,11 @@
                             android:layout_marginStart="@dimen/_8sdp"
                             android:layout_marginTop="@dimen/_8sdp"
                             android:layout_marginEnd="@dimen/_8sdp"
+                            android:autoLink="web"
                             android:drawablePadding="@dimen/_8sdp"
                             android:fontFamily="@font/ubuntu_regular"
                             android:gravity="fill_vertical"
                             android:includeFontPadding="false"
-                            android:autoLink="web"
                             android:text="@string/instagram"
                             android:textColor="@color/colorPrimaryText"
                             android:textSize="@dimen/_11ssp"
@@ -225,25 +225,34 @@
                             android:layout_marginTop="@dimen/_8sdp"
                             android:layout_marginEnd="@dimen/_8sdp"
                             android:layout_marginBottom="@dimen/_8sdp"
+                            android:autoLink="web"
                             android:drawablePadding="@dimen/_8sdp"
                             android:fontFamily="@font/ubuntu_regular"
                             android:gravity="fill_vertical"
                             android:includeFontPadding="false"
                             android:text="@string/linkedin"
-                            android:autoLink="web"
                             android:textColor="@color/colorPrimaryText"
                             android:textSize="@dimen/_11ssp"
                             app:drawableStartCompat="@drawable/ic_linkedin" />
 
                     </LinearLayout>
 
-
                 </androidx.cardview.widget.CardView>
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
