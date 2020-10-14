@@ -1,12 +1,14 @@
 package com.wahyu.hiringapps2.dashboard.home
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.wahyu.hiringapps2.R
-import com.wahyu.hiringapps2.databinding.ItemRecycleViewHomeBinding
+import com.wahyu.hiringapps2.dashboard.home.detail.DetailProfileActivity
+import com.wahyu.hiringapps2.databinding.ItemRvHomeBinding
 
 class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
 
@@ -20,10 +22,10 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
         notifyDataSetChanged()
     }
 
-    class HomeHolder(val binding: ItemRecycleViewHomeBinding) : RecyclerView.ViewHolder(binding.root)
+    class HomeHolder(val binding: ItemRvHomeBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeHolder {
-        return HomeHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_recycle_view_home, parent, false))
+        return HomeHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_rv_home, parent, false))
     }
 
     override fun onBindViewHolder(holder: HomeHolder, position: Int) {
@@ -32,6 +34,12 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
         holder.binding.tvJobTitle.text = item.jobTitle
         Picasso.get().load(getPhotoImage(item.image.toString())).
             into(holder.binding.ivImage)
+
+        holder.binding.root.setOnClickListener {
+            val intent = Intent(holder.binding.root.context, DetailProfileActivity::class.java)
+            intent.putExtra("id", item.id)
+            holder.binding.root.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = items.size

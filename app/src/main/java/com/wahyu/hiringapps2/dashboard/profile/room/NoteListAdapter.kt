@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.wahyu.hiringapps2.R
-import com.wahyu.hiringapps2.databinding.ItemRecycleViewRoomBinding
+import com.wahyu.hiringapps2.databinding.ItemRvRoomBinding
 import java.util.*
 
 class NoteListAdapter : RecyclerView.Adapter<NoteListAdapter.NoteListViewHolder>() {
@@ -19,10 +19,10 @@ class NoteListAdapter : RecyclerView.Adapter<NoteListAdapter.NoteListViewHolder>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteListViewHolder {
-        return NoteListViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_recycle_view_room, parent, false))
+        return NoteListViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_rv_room, parent, false))
     }
 
-    class NoteListViewHolder(val binding: ItemRecycleViewRoomBinding) : RecyclerView.ViewHolder(binding.root)
+    class NoteListViewHolder(val binding: ItemRvRoomBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onBindViewHolder(holder: NoteListViewHolder, position: Int) {
         val note = items[position]

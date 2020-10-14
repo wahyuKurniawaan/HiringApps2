@@ -1,37 +1,38 @@
-package com.wahyu.hiringapps2.dashboard.project
+package com.wahyu.hiringapps2.dashboard.offers
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.wahyu.hiringapps2.R
-import com.wahyu.hiringapps2.databinding.ItemRvProjectBinding
+import com.wahyu.hiringapps2.databinding.ItemRvOffersBinding
 import java.text.DecimalFormat
 
-class ProjectsAdapter : RecyclerView.Adapter<ProjectsAdapter.ProjectHolder>() {
+class OffersAdapter : RecyclerView.Adapter<OffersAdapter.OffersHolder>() {
 
-    private val items = mutableListOf<ProjectsModel>()
+    private val items = mutableListOf<OffersModel>()
     private val dec = DecimalFormat("#,###")
 
-    fun addList(list: List<ProjectsModel>) {
+    fun addList(list: List<OffersModel>) {
         items.clear()
         items.addAll(list)
         notifyDataSetChanged()
     }
 
-    class ProjectHolder(val binding: ItemRvProjectBinding) : RecyclerView.ViewHolder(binding.root)
+    class OffersHolder (val binding: ItemRvOffersBinding) : RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProjectHolder {
-        return ProjectHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_rv_project, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OffersHolder {
+        return OffersHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_rv_offers, parent, false))
     }
 
-    override fun onBindViewHolder(holder: ProjectHolder, position: Int) {
+    override fun onBindViewHolder(holder: OffersHolder, position: Int) {
         val item = items[position]
         val getPriceFormat = "Rp ${dec.format(item.price)}"
         holder.binding.tvName.text = item.name
         holder.binding.tvDescription.text = item.description
         holder.binding.tvPrice.text = getPriceFormat
         holder.binding.tvDuration.text = item.duration
+        holder.binding.tvJobSeekerName.text = item.jobSeekerName
     }
 
     override fun getItemCount(): Int = items.size

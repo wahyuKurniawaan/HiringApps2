@@ -58,6 +58,13 @@ class SignUpViewModel : ViewModel(), CoroutineScope {
             }
             if (response is SignUpResponse) {
                 isRegisterLiveData.value = true
+                try {
+                    service.createProfileRecruiter(response.data?.userId)
+                } catch (e: Throwable) {
+                    e.printStackTrace()
+                }
+
+
 
             }
             isLoadingLiveData.value = false

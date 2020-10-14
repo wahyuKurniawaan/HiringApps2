@@ -8,7 +8,7 @@ data class HomeResponse(val success: Boolean, val message: String?, val data: Li
         @SerializedName("id_profile_job_seeker") val id: Int?,
         @SerializedName("id_account_job_seeker") val idAccount: Int?,
         @SerializedName("id_portofolio_job_seeker") val idPortofolio: Int?,
-        @SerializedName("id_skill") val idSkill: String?,
+        @SerializedName("skill") val idSkill: String?,
         @SerializedName("email") val email: String?,
         @SerializedName("full_name") val name: String?,
         @SerializedName("job_title") val jobTitle: String?,

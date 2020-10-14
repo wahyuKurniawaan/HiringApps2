@@ -3,9 +3,9 @@ package com.wahyu.hiringapps2.dashboard.profile
 import android.os.Bundle
 import android.webkit.WebViewClient
 import androidx.databinding.DataBindingUtil
-import com.wahyu.hiringapps2.util.BaseActivity
 import com.wahyu.hiringapps2.R
 import com.wahyu.hiringapps2.databinding.ActivityWebViewBinding
+import com.wahyu.hiringapps2.util.BaseActivity
 import kotlinx.android.synthetic.main.activity_web_view.*
 
 class WebViewActivity : BaseActivity() {

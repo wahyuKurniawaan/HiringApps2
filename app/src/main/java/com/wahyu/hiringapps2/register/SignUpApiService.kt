@@ -17,4 +17,11 @@ interface SignUpApiService {
         @Field("phone_number") phoneNumber: String?,
     ): SignUpResponse
 
+    @FormUrlEncoded
+    @POST("profile-recruiter")
+    suspend fun createProfileRecruiter(
+        @Field("user_id") userId: Int?
+    ): CreateProfileResponse
+
+            data class CreateProfileResponse(val success: Boolean, val message: String?)
 }

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
 import com.wahyu.hiringapps2.R
+import com.wahyu.hiringapps2.dashboard.profile.editProfile.EditProfileActivity
 import com.wahyu.hiringapps2.dashboard.profile.room.NoteListActivity
 import com.wahyu.hiringapps2.databinding.FragmentProfileBinding
 import com.wahyu.hiringapps2.login.SignInActivity
@@ -46,6 +47,11 @@ class ProfileFragment : Fragment() {
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.topToolbar)
         viewModel.callProfileApi()
         subscribeLiveData()
+
+        binding.btnEditProfile.setOnClickListener {
+            val intent = Intent(this.requireContext(), EditProfileActivity::class.java)
+            startActivity(intent)
+        }
         return binding.root
     }
 
@@ -96,14 +102,26 @@ class ProfileFragment : Fragment() {
         viewModel.isProfileLiveData.observe(viewLifecycleOwner, {
             if (it) {
                 val data = viewModel.listLiveData.value?.firstOrNull()
-                binding.tvName.text = data?.name
-                Picasso.get().load(getPhotoImage(data?.profileImage!!)).into(binding.imageProfile)
-                binding.tvJobTitle.text = data.roleJob
-                binding.tvCity.text = data.city
-                binding.tvDescription.text = data.description
-                binding.tvEmail.text = data.email
-                binding.tvInstagram.text = data.instagramLink
-                binding.tvLinkedin.text = data.linkedinLink
+
+                if (data?.profileImage.isNullOrEmpty()) binding.imageProfile.setImageResource(R.drawable.ic_person)
+                else Picasso.get().load(getPhotoImage(data?.profileImage!!)).into(binding.imageProfile)
+
+                binding.tvName.text = data?.name ?: "Full Name"
+                binding.tvJobTitle.text = data?.roleJob ?: "Role Job"
+                binding.tvCity.text = data?.city ?: "City"
+                binding.tvDescription.text = data?.description ?: "Description"
+                binding.tvEmail.text = data?.email ?: "Email"
+                binding.tvInstagram.text = data?.instagramLink ?: "Instagram Link"
+                binding.tvLinkedin.text = data?.linkedinLink ?: "Linkedin Link"
+
+                binding.tvLinkedin.setOnClickListener {
+                    val intent = Intent(this.requireContext(), WebViewActivity()::class.java)
+                    startActivity(intent)
+                }
+                binding.tvInstagram.setOnClickListener {
+                    val intent = Intent(this.requireContext(), WebViewActivity()::class.java)
+                    startActivity(intent)
+                }
             } else {
                 Toast.makeText(this.requireContext(), "error", Toast.LENGTH_SHORT).show()
             }

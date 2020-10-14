@@ -12,6 +12,11 @@
         android:title="@string/search"/>
 
     <item
+        android:id="@+id/bottom_nav_offers"
+        android:icon="@drawable/ic_business_offers"
+        android:title="@string/offers"/>
+
+    <item
         android:id="@+id/bottom_nav_projects"
         android:icon="@drawable/ic_widgets"
         android:title="@string/projects"/>

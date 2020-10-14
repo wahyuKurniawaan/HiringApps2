@@ -10,7 +10,7 @@ import com.wahyu.hiringapps2.databinding.ActivitySignUpBinding
 import com.wahyu.hiringapps2.login.SignInActivity
 import com.wahyu.hiringapps2.util.ApiClient
 import com.wahyu.hiringapps2.util.BaseActivity
-import com.wahyu.hiringapps2.util.KeySharedPreferences
+import com.wahyu.hiringapps2.util.Key
 import com.wahyu.hiringapps2.util.SharedPreferencesUtil
 
 class SignUpActivity : BaseActivity() {
@@ -59,8 +59,8 @@ class SignUpActivity : BaseActivity() {
     }
 
     private fun saveSession(email: String, password: String) {
-        sharedPref.put(KeySharedPreferences.PREF_EMAIL, email)
-        sharedPref.put(KeySharedPreferences.PREF_PASSWORD, password)
+        sharedPref.put(Key.PREF_EMAIL, email)
+        sharedPref.put(Key.PREF_PASSWORD, password)
     }
 
     private fun subscribeLiveData() {
@@ -77,7 +77,7 @@ class SignUpActivity : BaseActivity() {
                     binding.etEmail.editableText.toString(),
                     binding.etPassword.editableText.toString()
                 )
-                sharedPref.put(KeySharedPreferences.PREF_FULL_NAME, binding.etFullName.editableText.toString())
+                sharedPref.put(Key.PREF_FULL_NAME, binding.etFullName.editableText.toString())
                 startActivity(intent)
             } else {
                 setErrorDialog("Error Register", viewModel.errorMessageLiveData.value)

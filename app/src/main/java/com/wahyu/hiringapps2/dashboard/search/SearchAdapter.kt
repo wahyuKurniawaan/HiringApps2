@@ -1,12 +1,14 @@
 package com.wahyu.hiringapps2.dashboard.search
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.wahyu.hiringapps2.R
-import com.wahyu.hiringapps2.databinding.ItemRecycleViewSearchBinding
+import com.wahyu.hiringapps2.dashboard.home.detail.DetailProfileActivity
+import com.wahyu.hiringapps2.databinding.ItemRvSearchBinding
 
 class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchHolder>() {
 
@@ -18,10 +20,10 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchHolder>() {
         notifyDataSetChanged()
     }
 
-    class SearchHolder(val binding: ItemRecycleViewSearchBinding) : RecyclerView.ViewHolder(binding.root)
+    class SearchHolder(val binding: ItemRvSearchBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchHolder {
-        return SearchHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_recycle_view_search, parent, false))
+        return SearchHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_rv_search, parent, false))
     }
 
     override fun onBindViewHolder(holder: SearchHolder, position: Int) {
@@ -31,6 +33,11 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchHolder>() {
         Picasso.get().load(getPhotoImage(item.image.toString())).
         into(holder.binding.ivImage)
 
+        holder.binding.root.setOnClickListener {
+            val intent = Intent(holder.binding.root.context, DetailProfileActivity::class.java)
+            intent.putExtra("id", item.id)
+            holder.binding.root.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = items.size

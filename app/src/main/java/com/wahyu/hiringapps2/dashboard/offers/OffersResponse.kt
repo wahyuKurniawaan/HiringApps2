@@ -1,11 +1,12 @@
-package com.wahyu.hiringapps2.dashboard.search
+package com.wahyu.hiringapps2.dashboard.offers
 
 import com.google.gson.annotations.SerializedName
 
-data class SearchResponse(val success: Boolean, val message: String?, val data: List<DataResult>?) {
+data class OffersResponse(val success: Boolean, val message: String?, val data: List<DataResult>?) {
 
     data class DataResult(
-        @SerializedName("id_profile_job_seeker") val id: Int?,
+        @SerializedName("id_offers") val id: Int?,
+        @SerializedName("id_profile_job_seeker") val idProfileJobSeeker: Int?,
         @SerializedName("id_account_job_seeker") val idAccount: Int?,
         @SerializedName("id_portofolio_job_seeker") val idPortofolio: Int?,
         @SerializedName("skill") val idSkill: String?,
@@ -20,5 +21,9 @@ data class SearchResponse(val success: Boolean, val message: String?, val data: 
         @SerializedName("description") val description: String?,
         @SerializedName("created_at") val createdAt: String?,
         @SerializedName("updated_at") val updatedAt: String?,
+        @SerializedName("name") val projectName: String?,
+        @SerializedName("project_description") val projectDescription: String?,
+        @SerializedName("price") val price: Long?,
+        @SerializedName("duration") val duration: String?,
     )
 }

@@ -93,6 +93,25 @@
     <string name="enter_role_job_in_the_company">Enter Role Job In The Company</string>
     <string name="instagram">Instagram</string>
     <string name="linkedin">Linkedin</string>
+    <string name="edit">Edit</string>
+    <string name="cancel">Cancel</string>
+    <string name="company_field">Company Field</string>
+    <string name="enter_your_company_field">Enter your company field</string>
+    <string name="enter_your_city_address">Enter your City Address</string>
+    <string name="enter_your_description">Enter your description</string>
+    <string name="instagram_link">Instagram Link</string>
+    <string name="linkedin_link">Linkedin Link</string>
+    <string name="hire">Hire</string>
+    <string name="skill">Skill</string>
+    <string name="list_skill">List Skill</string>
+    <string name="status_job">Status Job</string>
+    <string name="portofolio">Portofolio</string>
+    <string name="work_experience">Work Experience</string>
+    <string name="contact_name">Contact Name</string>
+    <string name="select_project_to_offer">Select Project To Offer</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="offered_to">Offered To :</string>
+    <string name="job_seeker_name">Job Seeker Name</string>
 
     <string-array name="role_accounts">
         <item>recruiter</item>

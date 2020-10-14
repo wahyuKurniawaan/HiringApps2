@@ -2,7 +2,7 @@ package com.wahyu.hiringapps2.dashboard.profile
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.wahyu.hiringapps2.util.KeySharedPreferences
+import com.wahyu.hiringapps2.util.Key
 import com.wahyu.hiringapps2.util.SharedPreferencesUtil
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
@@ -32,7 +32,7 @@ class ProfileViewModel : ViewModel(), CoroutineScope {
             isLoadingLiveData.value = true
             val response = withContext(Dispatchers.IO) {
                 try {
-                    service.getProfileRecruiterByEmailRequest(sharedPref.getString(KeySharedPreferences.PREF_EMAIL)!!)
+                    service.getProfileRecruiterByUserIdRequest(sharedPref.getInt(Key.PREF_USER_ID)!!)
                 } catch (e: Throwable) {
                     e.printStackTrace()
                     withContext(Job() + Dispatchers.Main) {

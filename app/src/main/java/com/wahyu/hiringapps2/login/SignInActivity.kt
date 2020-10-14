@@ -11,7 +11,7 @@ import com.wahyu.hiringapps2.databinding.ActivitySignInBinding
 import com.wahyu.hiringapps2.register.SignUpActivity
 import com.wahyu.hiringapps2.util.ApiClient
 import com.wahyu.hiringapps2.util.BaseActivity
-import com.wahyu.hiringapps2.util.KeySharedPreferences
+import com.wahyu.hiringapps2.util.Key
 import com.wahyu.hiringapps2.util.SharedPreferencesUtil
 
 class SignInActivity : BaseActivity() {
@@ -27,7 +27,7 @@ class SignInActivity : BaseActivity() {
 
     override fun initListener() {
         binding.buttonSignIn.setOnClickListener {
-            sharedPref.put(KeySharedPreferences.PREF_EMAIL, binding.etInputEmail.text.toString())
+            sharedPref.put(Key.PREF_EMAIL, binding.etInputEmail.text.toString())
             viewModel.callSignInApi(binding.etInputEmail.text.toString(), binding.etInputPassword.text.toString())
         }
 
@@ -56,7 +56,7 @@ class SignInActivity : BaseActivity() {
 
     override fun onStart() {
         super.onStart()
-        if (sharedPref.getBoolean(KeySharedPreferences.PREF_IS_LOGIN)) {
+        if (sharedPref.getBoolean(Key.PREF_IS_LOGIN)) {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }

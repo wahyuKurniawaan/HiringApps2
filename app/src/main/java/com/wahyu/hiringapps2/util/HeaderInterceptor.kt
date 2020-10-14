@@ -10,7 +10,7 @@ class HeaderInterceptor(val mContext: Context) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response = chain.run {
 
-        val token = sharedPref.getString(KeySharedPreferences.PREF_TOKEN)
+        val token = sharedPref.getString(Key.PREF_TOKEN)
         proceed(
             request().newBuilder()
             .addHeader("Authorization", "Bearer $token")

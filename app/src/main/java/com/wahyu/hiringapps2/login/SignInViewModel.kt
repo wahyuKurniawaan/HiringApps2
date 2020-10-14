@@ -3,7 +3,7 @@ package com.wahyu.hiringapps2.login
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.JsonParser
-import com.wahyu.hiringapps2.util.KeySharedPreferences
+import com.wahyu.hiringapps2.util.Key
 import com.wahyu.hiringapps2.util.SharedPreferencesUtil
 import kotlinx.coroutines.*
 import retrofit2.HttpException
@@ -51,8 +51,9 @@ class SignInViewModel : ViewModel(), CoroutineScope {
                 }
             }
             if (response is SignInResponse) {
-                sharedPref.put(KeySharedPreferences.PREF_TOKEN, response.data?.token!!)
-                sharedPref.put(KeySharedPreferences.PREF_IS_LOGIN, true)
+                sharedPref.put(Key.PREF_TOKEN, response.data?.token!!)
+                sharedPref.put(Key.PREF_USER_ID, response.data.id!!)
+                sharedPref.put(Key.PREF_IS_LOGIN, true)
                 isLoginLiveData.value = true
             }
             isLoadingLiveData.value = false

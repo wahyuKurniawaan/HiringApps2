@@ -8,301 +8,421 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".dashboard.profile.FormEditProfileActivity">
+        tools:context=".dashboard.profile.editProfile.EditProfileActivity">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/top_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?android:actionBarSize"
             android:background="@color/colorPrimary"
+            android:theme="@style/ToolbarColoredBackArrow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:titleTextColor="@color/colorPrimaryText" />
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="@string/edit_profile"
+            app:titleTextColor="@color/colorTextIcons" />
 
         <ScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/buttonSave"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/top_toolbar"
             app:layout_constraintVertical_bias="0.0">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardSignIn"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_20sdp"
-                app:cardCornerRadius="@dimen/_4sdp">
+                android:layout_height="wrap_content">
 
-                <LinearLayout
+                <ImageView
+                    android:id="@+id/imageProfile"
+                    android:layout_width="@dimen/_120sdp"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/profile_image"
+                    android:src="@drawable/ic_person"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_edit_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:drawablePadding="@dimen/_4sdp"
+                    android:fontFamily="@font/ubuntu_medium"
+                    android:gravity="fill_vertical"
+                    android:text="@string/edit"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="@dimen/_12ssp"
+                    app:drawableStartCompat="@drawable/ic_round_edit_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageProfile" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardProfile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/_4sdp">
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    app:cardCornerRadius="@dimen/_4sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_edit_photo">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:fontFamily="@font/ubuntu_regular"
-                        android:includeFontPadding="false"
-                        android:text="@string/first_name"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textSize="@dimen/_11ssp" />
+                        android:orientation="vertical"
+                        android:padding="@dimen/_4sdp">
 
-                    <EditText
-                        android:id="@+id/et_inputFirstName"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:background="@null"
-                        android:fontFamily="@font/ubuntu_regular"
-                        android:hint="@string/wahyu"
-                        android:imeOptions="actionNext"
-                        android:importantForAutofill="no"
-                        android:includeFontPadding="false"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textColorHint="@color/colorHintText"
-                        android:textSize="@dimen/_13ssp" />
+                        <TextView
+                            android:id="@+id/tv_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:fontFamily="@font/ubuntu_regular"
+                            android:gravity="center_horizontal"
+                            android:includeFontPadding="false"
+                            android:text="@string/full_name"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="@dimen/_18ssp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:fontFamily="@font/ubuntu_regular"
-                        android:includeFontPadding="false"
-                        android:text="@string/last_name"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textSize="@dimen/_11ssp" />
+                        <TextView
+                            android:id="@+id/tv_job_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:fontFamily="@font/ubuntu_regular"
+                            android:gravity="center_horizontal"
+                            android:includeFontPadding="false"
+                            android:text="@string/job_title"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="@dimen/_14ssp" />
 
-                    <EditText
-                        android:id="@+id/et_inputLastName"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:background="@null"
-                        android:fontFamily="@font/ubuntu_regular"
-                        android:hint="@string/kurniawan"
-                        android:imeOptions="actionNext"
-                        android:importantForAutofill="no"
-                        android:includeFontPadding="false"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textColorHint="@color/colorHintText"
-                        android:textSize="@dimen/_13ssp" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_4sdp">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:fontFamily="@font/ubuntu_regular"
-                        android:includeFontPadding="false"
-                        android:text="@string/sex"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textSize="@dimen/_11ssp" />
+                            <ImageView
+                                android:id="@+id/iv_location"
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:contentDescription="@string/location_image"
+                                android:src="@drawable/ic_round_location_on_24"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/tv_city"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-                    <EditText
-                        android:id="@+id/et_inputSex"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:background="@null"
-                        android:fontFamily="@font/ubuntu_regular"
-                        android:hint="@string/pria_wanita"
-                        android:imeOptions="actionNext"
-                        android:importantForAutofill="no"
-                        android:includeFontPadding="false"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textColorHint="@color/colorHintText"
-                        android:textSize="@dimen/_13ssp" />
+                            <TextView
+                                android:id="@+id/tv_city"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_4sdp"
+                                android:layout_marginEnd="@dimen/_4sdp"
+                                android:fontFamily="@font/ubuntu_regular"
+                                android:gravity="center_horizontal"
+                                android:includeFontPadding="false"
+                                android:text="@string/city"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorPrimaryText"
+                                android:textSize="@dimen/_11ssp"
+                                app:layout_constraintBottom_toBottomOf="@id/iv_location"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.5"
+                                app:layout_constraintStart_toEndOf="@+id/iv_location"
+                                app:layout_constraintTop_toTopOf="@id/iv_location" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:fontFamily="@font/ubuntu_regular"
-                        android:includeFontPadding="false"
-                        android:text="@string/email"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textSize="@dimen/_11ssp" />
+                        <TextView
+                            android:id="@+id/tv_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:fontFamily="@font/ubuntu_regular"
+                            android:gravity="center_horizontal"
+                            android:includeFontPadding="false"
+                            android:text="@string/description"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="@dimen/_11ssp" />
 
-                    <EditText
-                        android:id="@+id/et_inputEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:background="@null"
-                        android:fontFamily="@font/ubuntu_regular"
-                        android:hint="@string/you_example_com"
-                        android:imeOptions="actionNext"
-                        android:importantForAutofill="no"
-                        android:includeFontPadding="false"
-                        android:inputType="textEmailAddress"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textColorHint="@color/colorHintText"
-                        android:textSize="@dimen/_13ssp" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:fontFamily="@font/ubuntu_regular"
-                        android:includeFontPadding="false"
-                        android:text="@string/birthday"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textSize="@dimen/_11ssp" />
+                </androidx.cardview.widget.CardView>
 
-                    <EditText
-                        android:id="@+id/et_inputBirthday"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:background="@null"
-                        android:fontFamily="@font/ubuntu_regular"
-                        android:hint="@string/_08_march_1997"
-                        android:imeOptions="actionNext"
-                        android:importantForAutofill="no"
-                        android:includeFontPadding="false"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textColorHint="@color/colorHintText"
-                        android:textSize="@dimen/_13ssp" />
+                <Button
+                    android:id="@+id/buttonSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="@font/ubuntu_bold"
+                    android:includeFontPadding="false"
+                    android:text="@string/save"
+                    android:textColor="@color/colorTextIcons"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardProfile" />
 
-                    <TextView
+                <Button
+                    android:id="@+id/buttonCancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:fontFamily="@font/ubuntu_bold"
+                    android:includeFontPadding="false"
+                    android:text="@string/cancel"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_13ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/buttonSave" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_edit_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_16sdp"
+                    app:cardCornerRadius="@dimen/_4sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/buttonCancel">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:fontFamily="@font/ubuntu_regular"
-                        android:includeFontPadding="false"
-                        android:text="@string/phone_number"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textSize="@dimen/_11ssp" />
+                        android:orientation="vertical"
+                        android:padding="@dimen/_4sdp">
 
-                    <EditText
-                        android:id="@+id/et_inputPhoneNumber"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:background="@null"
-                        android:fontFamily="@font/ubuntu_regular"
-                        android:hint="@string/phone_number_hint"
-                        android:imeOptions="actionNext"
-                        android:importantForAutofill="no"
-                        android:includeFontPadding="false"
-                        android:inputType="text|phone"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textColorHint="@color/colorHintText"
-                        android:textSize="@dimen/_13ssp" />
+                        <TextView
+                            android:id="@+id/tv_edit_data"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:fontFamily="@font/ubuntu_regular"
+                            android:includeFontPadding="false"
+                            android:text="@string/edit_profile"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="@dimen/_18ssp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:fontFamily="@font/ubuntu_regular"
-                        android:includeFontPadding="false"
-                        android:text="@string/address"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textSize="@dimen/_11ssp" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginTop="@dimen/_4sdp"
+                            android:background="?android:attr/listDivider" />
 
-                    <EditText
-                        android:id="@+id/et_inputAddress"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:background="@null"
-                        android:fontFamily="@font/ubuntu_regular"
-                        android:hint="@string/address_hint"
-                        android:imeOptions="actionNext"
-                        android:importantForAutofill="no"
-                        android:includeFontPadding="false"
-                        android:inputType="textPersonName"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textColorHint="@color/colorHintText"
-                        android:textSize="@dimen/_13ssp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:fontFamily="@font/ubuntu_regular"
+                            android:includeFontPadding="false"
+                            android:text="@string/company_field"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="@dimen/_11ssp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginTop="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:fontFamily="@font/ubuntu_regular"
-                        android:includeFontPadding="false"
-                        android:text="@string/identity_card_number_ktp"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textSize="@dimen/_11ssp" />
+                        <EditText
+                            android:id="@+id/et_input_company_field"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:background="@null"
+                            android:fontFamily="@font/ubuntu_regular"
+                            android:hint="@string/enter_your_company_field"
+                            android:imeOptions="actionNext"
+                            android:importantForAutofill="no"
+                            android:includeFontPadding="false"
+                            android:inputType="text"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textColorHint="@color/colorHintText"
+                            android:textSize="@dimen/_13ssp" />
 
-                    <EditText
-                        android:id="@+id/et_inputIdentityNumber"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_marginStart="@dimen/_8sdp"
-                        android:layout_marginEnd="@dimen/_8sdp"
-                        android:background="@null"
-                        android:fontFamily="@font/ubuntu_regular"
-                        android:hint="@string/address_hint"
-                        android:imeOptions="actionNext"
-                        android:importantForAutofill="no"
-                        android:includeFontPadding="false"
-                        android:inputType="text|number"
-                        android:textColor="@color/colorPrimaryText"
-                        android:textColorHint="@color/colorHintText"
-                        android:textSize="@dimen/_13ssp" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:fontFamily="@font/ubuntu_regular"
+                            android:includeFontPadding="false"
+                            android:text="@string/city"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="@dimen/_11ssp" />
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                        <EditText
+                            android:id="@+id/et_input_city"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:background="@null"
+                            android:fontFamily="@font/ubuntu_regular"
+                            android:hint="@string/enter_your_city_address"
+                            android:imeOptions="actionNext"
+                            android:importantForAutofill="no"
+                            android:includeFontPadding="false"
+                            android:inputType="text"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textColorHint="@color/colorHintText"
+                            android:textSize="@dimen/_13ssp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:fontFamily="@font/ubuntu_regular"
+                            android:includeFontPadding="false"
+                            android:text="@string/description"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="@dimen/_11ssp" />
+
+                        <EditText
+                            android:id="@+id/et_input_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:background="@null"
+                            android:fontFamily="@font/ubuntu_regular"
+                            android:hint="@string/enter_your_description"
+                            android:imeOptions="actionNext"
+                            android:importantForAutofill="no"
+                            android:includeFontPadding="false"
+                            android:inputType="textMultiLine"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textColorHint="@color/colorHintText"
+                            android:textSize="@dimen/_13ssp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:fontFamily="@font/ubuntu_regular"
+                            android:includeFontPadding="false"
+                            android:text="@string/instagram"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="@dimen/_11ssp" />
+
+                        <EditText
+                            android:id="@+id/et_input_instagram"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:background="@null"
+                            android:fontFamily="@font/ubuntu_regular"
+                            android:hint="@string/instagram_link"
+                            android:imeOptions="actionNext"
+                            android:importantForAutofill="no"
+                            android:includeFontPadding="false"
+                            android:inputType="text"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textColorHint="@color/colorHintText"
+                            android:textSize="@dimen/_13ssp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:fontFamily="@font/ubuntu_regular"
+                            android:includeFontPadding="false"
+                            android:text="@string/linkedin"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="@dimen/_11ssp" />
+
+                        <EditText
+                            android:id="@+id/et_input_linkedin"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:background="@null"
+                            android:fontFamily="@font/ubuntu_regular"
+                            android:hint="@string/linkedin_link"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:includeFontPadding="false"
+                            android:inputType="text"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textColorHint="@color/colorHintText"
+                            android:textSize="@dimen/_13ssp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:actionBarSize"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card_edit_profile"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/card_edit_profile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
-
-        <Button
-            android:id="@+id/buttonSave"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:background="@color/colorPrimary"
-            android:fontFamily="@font/ubuntu_bold"
-            android:includeFontPadding="false"
-            android:text="@string/save"
-            android:textColor="@color/colorTextIcons"
-            android:textSize="@dimen/_13ssp"
-            app:layout_constraintTop_toBottomOf="@id/scrollView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

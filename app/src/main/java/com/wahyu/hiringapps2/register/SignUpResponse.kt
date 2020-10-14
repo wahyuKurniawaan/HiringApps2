@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class SignUpResponse(val success: Boolean, val message: String?, val data: DataResult?) {
 
     data class DataResult(
-        @SerializedName("user_id") val userId: Int?,
+        @SerializedName("id") val userId: Int?,
         @SerializedName("user_name") val name: String?,
         @SerializedName("user_email") val email: String?,
         @SerializedName("user_company") val companyName: String?,
