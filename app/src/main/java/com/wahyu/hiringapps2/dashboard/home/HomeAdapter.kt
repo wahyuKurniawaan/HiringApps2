@@ -32,12 +32,13 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
         val item = items[position]
         holder.binding.tvName.text = item.name
         holder.binding.tvJobTitle.text = item.jobTitle
-        Picasso.get().load(getPhotoImage(item.image.toString())).
+        Picasso.get().load(getPhotoImage(item.image ?: "image-1601202778097.png")).
             into(holder.binding.ivImage)
 
         holder.binding.root.setOnClickListener {
             val intent = Intent(holder.binding.root.context, DetailProfileActivity::class.java)
             intent.putExtra("id", item.id)
+            intent.putExtra("user_id", item.userId)
             holder.binding.root.context.startActivity(intent)
         }
     }

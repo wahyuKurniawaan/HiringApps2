@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import com.wahyu.hiringapps2.util.Key
 import com.wahyu.hiringapps2.util.SharedPreferencesUtil
 import kotlinx.coroutines.*
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import kotlin.coroutines.CoroutineContext
 
 class EditProfileViewModel : ViewModel(), CoroutineScope {
@@ -52,13 +54,14 @@ class EditProfileViewModel : ViewModel(), CoroutineScope {
         }
     }
 
-    fun callEditProfileDataApi(id: Int, companyField: String, city: String, description: String, instagram: String, linkedin: String,
-                               userName: String, userEmail: String, userPassword: String, userCompany: String, roleJob: String, phoneNumber: String) {
+    fun callEditProfileDataApi(id: Int, companyField: RequestBody, city: RequestBody, description: RequestBody, instagram: RequestBody,
+                               linkedin: RequestBody,profileImage: MultipartBody.Part, userName: RequestBody, userEmail: RequestBody, userPassword: RequestBody,
+                               userCompany: RequestBody, roleJob: RequestBody, phoneNumber: RequestBody) {
         launch {
             isLoadingLiveData.value = true
             val response = withContext(Dispatchers.IO) {
                 try {
-                    service.editProfileRequest(id, companyField, city, description, instagram, linkedin, userName, userEmail,
+                    service.editProfileRequest(id, companyField, city, description, instagram, linkedin, profileImage, userName, userEmail,
                         userPassword, userCompany, roleJob, phoneNumber)
                 } catch (e: Throwable) {
                     e.printStackTrace()
@@ -68,12 +71,12 @@ class EditProfileViewModel : ViewModel(), CoroutineScope {
                 }
             }
             if (response is EditProfileResponse) {
-//                val list = response.data?.map {
-//                    EditProfileModel(it.id, it.userId, it.name, it.email, it.companyName, it.roleJob, it.phoneNumber, it.userRole,
-//                        it.profileImage, it.companyField, it.city, it.description, it.instagramLink, it.linkedinLink)
-//                } ?: listOf()
-//                listLiveData.value = list
-//                isEditProfileLiveData.value = true
+                val list = response.data?.map {
+                    EditProfileModel(it.id, it.userId, it.name, it.email, it.companyName, it.roleJob, it.phoneNumber, it.userRole,
+                        it.profileImage, it.companyField, it.city, it.description, it.instagramLink, it.linkedinLink)
+                } ?: listOf()
+                listLiveData.value = list
+                isEditProfileLiveData.value = true
             }
             isLoadingLiveData.value = false
         }

@@ -4,6 +4,8 @@
     package="com.wahyu.hiringapps2">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".dashboard.home.detail.hire.HireActivity"></activity>
+        <activity android:name=".dashboard.project.addProject.AddProjectActivity"></activity>
+        <activity android:name=".dashboard.home.detail.hire.HireActivity" />
         <activity android:name=".dashboard.home.detail.DetailProfileActivity" />
         <activity android:name=".auth.LoginWithAuthActivity" />
         <activity android:name=".retrofit.LearnRetrofitActivity" />

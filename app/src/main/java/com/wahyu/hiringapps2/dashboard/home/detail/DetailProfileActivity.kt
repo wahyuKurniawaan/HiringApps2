@@ -29,6 +29,7 @@ class DetailProfileActivity : BaseActivity() {
             val intent = Intent(this, HireActivity::class.java)
             intent.putExtra("name", viewModel.detailProfileLiveData.value?.first()?.name)
             intent.putExtra("id", viewModel.detailProfileLiveData.value?.first()?.id)
+            intent.putExtra("user_id", viewModel.detailProfileLiveData.value?.first()?.userId)
             startActivity(intent)
         }
     }

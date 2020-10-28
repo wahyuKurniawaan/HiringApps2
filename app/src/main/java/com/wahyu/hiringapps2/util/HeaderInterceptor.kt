@@ -17,6 +17,4 @@ class HeaderInterceptor(val mContext: Context) : Interceptor {
             .build()
         )
     }
-
-
 }

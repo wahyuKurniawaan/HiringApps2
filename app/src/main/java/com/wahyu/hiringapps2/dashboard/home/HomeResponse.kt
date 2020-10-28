@@ -6,11 +6,11 @@ data class HomeResponse(val success: Boolean, val message: String?, val data: Li
 
     data class DataResult(
         @SerializedName("id_profile_job_seeker") val id: Int?,
-        @SerializedName("id_account_job_seeker") val idAccount: Int?,
+        @SerializedName("user_id") val userId: Int?,
         @SerializedName("id_portofolio_job_seeker") val idPortofolio: Int?,
         @SerializedName("skill") val idSkill: String?,
-        @SerializedName("email") val email: String?,
-        @SerializedName("full_name") val name: String?,
+        @SerializedName("user_email") val email: String?,
+        @SerializedName("user_name") val name: String?,
         @SerializedName("job_title") val jobTitle: String?,
         @SerializedName("status_job") val statusJob: String?,
         @SerializedName("address") val address: String?,

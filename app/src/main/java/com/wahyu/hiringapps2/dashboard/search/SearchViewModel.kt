@@ -42,7 +42,7 @@ class SearchViewModel : ViewModel(), CoroutineScope {
             }
             if (response is SearchResponse) {
                 val list = response.data?.map {
-                    SearchModel(it.id, it.idAccount, it.idPortofolio, it.idSkill, it.email, it.name, it.jobTitle, it.statusJob,
+                    SearchModel(it.id, it.userId, it.idPortofolio, it.idSkill, it.email, it.name, it.jobTitle, it.statusJob,
                         it.address, it.city, it.workplace, it.image, it.description, it.createdAt, it.updatedAt)
                 } ?: listOf()
                 listLiveData.value = list

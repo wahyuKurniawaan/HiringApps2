@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_8sdp">
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:padding="@dimen/_8sdp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardSignIn"
@@ -24,62 +24,76 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/_4sdp">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tv_name"
+                <ImageView
+                    android:id="@+id/iv_image"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_undraw_notify_re_65on"
+                    android:contentDescription="@string/project_icon" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:fontFamily="@font/ubuntu_regular"
-                    android:includeFontPadding="false"
-                    android:text="@string/name"
-                    android:textColor="@color/colorPrimaryText"
-                    android:textSize="@dimen/_18ssp" />
+                    android:orientation="vertical"
+                    android:padding="@dimen/_4sdp">
 
-                <TextView
-                    android:id="@+id/tv_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:fontFamily="@font/ubuntu_regular"
-                    android:includeFontPadding="false"
-                    android:text="@string/description"
-                    android:textColor="@color/colorSecondaryText"
-                    android:textSize="@dimen/_12ssp"
-                    tools:ignore="LabelFor" />
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:fontFamily="@font/ubuntu_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/name"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textSize="@dimen/_18ssp" />
 
-                <TextView
-                    android:id="@+id/tv_price"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:fontFamily="@font/ubuntu_regular"
-                    android:includeFontPadding="false"
-                    android:text="@string/price"
-                    android:textColor="@color/colorSecondaryText"
-                    android:textSize="@dimen/_12ssp" />
+                    <TextView
+                        android:id="@+id/tv_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:fontFamily="@font/ubuntu_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/description"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="@dimen/_12ssp"
+                        tools:ignore="LabelFor" />
 
-                <TextView
-                    android:id="@+id/tv_duration"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:fontFamily="@font/ubuntu_regular"
-                    android:includeFontPadding="false"
-                    android:text="@string/duration"
-                    android:textColor="@color/colorSecondaryText"
-                    android:textSize="@dimen/_12ssp" />
+                    <TextView
+                        android:id="@+id/tv_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:fontFamily="@font/ubuntu_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/price"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <TextView
+                        android:id="@+id/tv_duration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:fontFamily="@font/ubuntu_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/duration"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="@dimen/_12ssp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 

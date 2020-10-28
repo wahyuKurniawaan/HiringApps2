@@ -30,7 +30,7 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchHolder>() {
         val item = items[position]
         holder.binding.tvName.text = item.name
         holder.binding.tvJobTitle.text = item.jobTitle
-        Picasso.get().load(getPhotoImage(item.image.toString())).
+        Picasso.get().load(getPhotoImage(item.image ?: "image-1601202778097.png")).
         into(holder.binding.ivImage)
 
         holder.binding.root.setOnClickListener {

@@ -10,4 +10,7 @@
     <color name="colorBackground">#FAFAFA</color>
     <color name="colorShadowBackground">#FBFBFB</color>
     <color name="colorHintText">#BDBDBD</color>
+    <color name="ColorRed">#FF0000</color>
+    <color name="ColorYellow">#FFFF00</color>
+    <color name="ColorGreen">#00FF00</color>
 </resources>

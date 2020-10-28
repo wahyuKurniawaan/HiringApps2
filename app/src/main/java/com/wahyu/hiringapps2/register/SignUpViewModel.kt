@@ -63,9 +63,6 @@ class SignUpViewModel : ViewModel(), CoroutineScope {
                 } catch (e: Throwable) {
                     e.printStackTrace()
                 }
-
-
-
             }
             isLoadingLiveData.value = false
         }

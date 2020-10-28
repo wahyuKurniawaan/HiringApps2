@@ -34,6 +34,37 @@
             app:layout_constraintTop_toBottomOf="@id/top_toolbar"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
+        <LinearLayout
+            android:id="@+id/linear_layout_no_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_toolbar"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:contentDescription="@string/notification_no_search_result"
+                android:src="@drawable/ic_undraw_notify_re_65on" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:fontFamily="@font/ubuntu_bold"
+                android:gravity="center_horizontal"
+                android:text="@string/there_are_no_offers_yet"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="@dimen/_18ssp" />
+        </LinearLayout>
+
         <ProgressBar
             android:id="@+id/progress_bar"
             android:layout_width="wrap_content"

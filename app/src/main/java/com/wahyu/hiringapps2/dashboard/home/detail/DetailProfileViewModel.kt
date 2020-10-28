@@ -42,7 +42,7 @@ class DetailProfileViewModel : ViewModel(), CoroutineScope {
             }
             if (response is HomeResponse) {
                 val list = response.data?.map {
-                    HomeModel(it.id, it.idAccount, it.idPortofolio, it.idSkill, it.email, it.name, it.jobTitle, it.statusJob,
+                    HomeModel(it.id, it.userId, it.idPortofolio, it.idSkill, it.email, it.name, it.jobTitle, it.statusJob,
                         it.address, it.city, it.workplace, it.image, it.description, it.createdAt, it.updatedAt)
                 } ?: listOf()
                 detailProfileLiveData.value = list

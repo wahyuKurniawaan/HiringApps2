@@ -11,6 +11,7 @@ import com.wahyu.hiringapps2.R
 import com.wahyu.hiringapps2.databinding.ActivityHireBinding
 import com.wahyu.hiringapps2.util.ApiClient
 import com.wahyu.hiringapps2.util.BaseActivity
+import com.wahyu.hiringapps2.util.Key
 import com.wahyu.hiringapps2.util.SharedPreferencesUtil
 
 class HireActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
@@ -53,10 +54,19 @@ class HireActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
 
     private fun subscribeLiveData() {
         viewModel.listProjectLiveData.observe(this, {
-            val data = it?.map { it.name }
+            val data = it?.map { it.name } ?: viewModel.messageErrorLiveData.value
             val adapter = ArrayAdapter(
                 this,
                 R.layout.spinner_name_project, data!!.toMutableList()
+            )
+            adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+            binding.spinner.adapter = adapter
+            binding.spinner.onItemSelectedListener = this
+        })
+        viewModel.messageErrorLiveData.observe(this, {
+            val adapter = ArrayAdapter(
+                this,
+                R.layout.spinner_name_project, it
             )
             adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
             binding.spinner.adapter = adapter
@@ -74,10 +84,17 @@ class HireActivity : BaseActivity(), AdapterView.OnItemSelectedListener {
             val list = viewModel.listProjectLiveData.value
             val idProject = list?.get(list.indexOf(list.find { it.name == projectName }))?.id ?: 0
             if (idProject != 0) {
-                viewModel.callOffersApi(intent.getIntExtra("id", 0), idProject)
-                Toast.makeText(this,
+                viewModel.callOffersApi(
+                    intent.getIntExtra("id", 0),
+                    idProject,
+                    intent.getIntExtra("user_id", 0),
+                    sharedPref.getString(Key.PREF_EMAIL)!!
+                )
+                Toast.makeText(
+                    this,
                     "successfully offered the project to ${intent.getStringExtra("name")}",
-                    Toast.LENGTH_LONG).show()
+                    Toast.LENGTH_LONG
+                ).show()
                 finish()
             } else Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
         }

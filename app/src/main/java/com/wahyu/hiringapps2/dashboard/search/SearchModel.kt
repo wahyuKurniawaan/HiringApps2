@@ -2,7 +2,7 @@ package com.wahyu.hiringapps2.dashboard.search
 
 data class SearchModel(
     val id: Int?,
-    val idAccount: Int?,
+    val userId: Int?,
     val idPortofolio: Int?,
     val idSkill: String?,
     val email: String?,

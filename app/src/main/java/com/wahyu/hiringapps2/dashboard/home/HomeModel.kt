@@ -2,7 +2,7 @@ package com.wahyu.hiringapps2.dashboard.home
 
 data class HomeModel(
     val id: Int?,
-    val idAccount: Int?,
+    val userId: Int?,
     val idPortofolio: Int?,
     val idSkill: String?,
     val email: String?,

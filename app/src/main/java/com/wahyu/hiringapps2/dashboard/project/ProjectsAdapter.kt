@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import com.wahyu.hiringapps2.R
 import com.wahyu.hiringapps2.databinding.ItemRvProjectBinding
 import java.text.DecimalFormat
@@ -11,6 +12,7 @@ import java.text.DecimalFormat
 class ProjectsAdapter : RecyclerView.Adapter<ProjectsAdapter.ProjectHolder>() {
 
     private val items = mutableListOf<ProjectsModel>()
+    private fun getPhotoImage(file: String) : String = "http://34.234.66.114:8080/uploads/$file"
     private val dec = DecimalFormat("#,###")
 
     fun addList(list: List<ProjectsModel>) {
@@ -32,6 +34,7 @@ class ProjectsAdapter : RecyclerView.Adapter<ProjectsAdapter.ProjectHolder>() {
         holder.binding.tvDescription.text = item.description
         holder.binding.tvPrice.text = getPriceFormat
         holder.binding.tvDuration.text = item.duration
+        Picasso.get().load(getPhotoImage(item.image!!)).into(holder.binding.ivImage)
     }
 
     override fun getItemCount(): Int = items.size

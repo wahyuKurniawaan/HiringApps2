@@ -2,7 +2,7 @@ package com.wahyu.hiringapps2.dashboard.profile.editProfile
 
 import com.google.gson.annotations.SerializedName
 
-class EditProfileResponse(val success: Boolean, val message: String?, val data: List<DataResult>?) {
+data class EditProfileResponse(val success: Boolean, val message: String?, val data: List<DataResult>?) {
 
     data class DataResult(
         @SerializedName("id_profile_recruiter") val id: Int?,

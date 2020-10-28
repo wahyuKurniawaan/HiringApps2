@@ -112,6 +112,23 @@
     <string name="enter_your_name">Enter your name</string>
     <string name="offered_to">Offered To :</string>
     <string name="job_seeker_name">Job Seeker Name</string>
+    <string name="project_icon">Project Icon</string>
+    <string name="there_are_no_offers_yet">There Are No Offers Yet</string>
+    <string name="there_are_no_project_yet">There Are No Project Yet</string>
+    <string name="floating_button_add">Floating Button Add</string>
+    <string name="project_name">Project Name</string>
+    <string name="enter_project_name">Enter project name</string>
+    <string name="project_description">Project Description</string>
+    <string name="enter_project_description">Enter project description</string>
+    <string name="project_price">Project Price</string>
+    <string name="enter_project_price_idr">Enter project price ( IDR )</string>
+    <string name="project_duration">Project Duration</string>
+    <string name="enter_project_duration_ex_6_month">Enter project duration (ex: 6 month)</string>
+    <string name="status">Status :</string>
+    <string name="status_info">Status Info</string>
+    <string name="waiting_for_response">Waiting for response</string>
+    <string name="approved">Approved</string>
+    <string name="rejected">Rejected</string>
 
     <string-array name="role_accounts">
         <item>recruiter</item>

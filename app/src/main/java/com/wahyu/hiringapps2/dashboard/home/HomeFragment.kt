@@ -79,10 +79,8 @@ class HomeFragment : Fragment(), AdapterView.OnItemSelectedListener {
         viewModel.listLiveData.observe(viewLifecycleOwner, {
             (binding.recycleView.adapter as HomeAdapter).addList(it)
         })
-
         viewModel.isLoadingLiveData.observe(viewLifecycleOwner, {
             binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
         })
-
     }
 }

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_8sdp"
         android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_8sdp">
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:padding="@dimen/_8sdp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardSignIn"
@@ -23,15 +23,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_height="match_parent"
                 android:padding="@dimen/_4sdp">
+
+                <ImageView
+                    android:id="@+id/iv_image"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:contentDescription="@string/project_icon"
+                    android:src="@drawable/ic_undraw_notify_re_65on"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_duration"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_name"
+                    tools:layout_editor_absoluteX="6dp" />
 
                 <TextView
                     android:id="@+id/tv_name"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:layout_marginTop="@dimen/_8sdp"
@@ -40,11 +50,14 @@
                     android:includeFontPadding="false"
                     android:text="@string/name"
                     android:textColor="@color/colorPrimaryText"
-                    android:textSize="@dimen/_18ssp" />
+                    android:textSize="@dimen/_18ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_image"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_description"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:layout_marginTop="@dimen/_8sdp"
@@ -54,11 +67,14 @@
                     android:text="@string/description"
                     android:textColor="@color/colorSecondaryText"
                     android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_image"
+                    app:layout_constraintTop_toBottomOf="@id/tv_name"
                     tools:ignore="LabelFor" />
 
                 <TextView
                     android:id="@+id/tv_price"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:layout_marginTop="@dimen/_8sdp"
@@ -67,11 +83,14 @@
                     android:includeFontPadding="false"
                     android:text="@string/price"
                     android:textColor="@color/colorSecondaryText"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_image"
+                    app:layout_constraintTop_toBottomOf="@id/tv_description" />
 
                 <TextView
                     android:id="@+id/tv_duration"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:layout_marginTop="@dimen/_8sdp"
@@ -80,39 +99,123 @@
                     android:includeFontPadding="false"
                     android:text="@string/duration"
                     android:textColor="@color/colorSecondaryText"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_image"
+                    app:layout_constraintTop_toBottomOf="@id/tv_price" />
 
                 <View
+                    android:id="@+id/divider"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_1sdp"
                     android:layout_margin="@dimen/_8sdp"
-                    android:background="?android:attr/listDivider"/>
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_duration"
+                    tools:layout_editor_absoluteY="6dp" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:layout_marginEnd="@dimen/_8sdp"
-                    android:fontFamily="@font/ubuntu_regular"
-                    android:includeFontPadding="false"
-                    android:text="@string/offered_to"
-                    android:textColor="@color/colorPrimaryText"
-                    android:textSize="@dimen/_14ssp" />
-
-                <TextView
-                    android:id="@+id/tv_job_seeker_name"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_offered_to"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_8sdp"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:layout_marginEnd="@dimen/_8sdp"
                     android:fontFamily="@font/ubuntu_regular"
                     android:includeFontPadding="false"
+                    android:text="@string/offered_to"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider" />
+
+                <TextView
+                    android:id="@+id/tv_job_seeker_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:includeFontPadding="false"
                     android:text="@string/job_seeker_name"
                     android:textColor="@color/colorSecondaryText"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_offered_to"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@id/tv_offered_to"
+                    app:layout_constraintTop_toTopOf="@id/tv_offered_to" />
 
-            </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_status_waiting"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:background="@drawable/my_button"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:includeFontPadding="false"
+                    android:padding="@dimen/_4sdp"
+                    android:text="@string/waiting_for_response"
+                    android:visibility="gone"
+                    android:backgroundTint="@color/ColorYellow"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_offered_to"
+                    tools:ignore="UnusedAttribute" />
+
+                <TextView
+                    android:id="@+id/tv_status_approved"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:background="@drawable/my_button"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:includeFontPadding="false"
+                    android:padding="@dimen/_4sdp"
+                    android:text="@string/approved"
+                    android:visibility="gone"
+                    android:backgroundTint="@color/ColorGreen"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_offered_to"
+                    tools:ignore="UnusedAttribute" />
+
+                <TextView
+                    android:id="@+id/tv_status_rejected"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:background="@drawable/my_button"
+                    android:fontFamily="@font/ubuntu_regular"
+                    android:includeFontPadding="false"
+                    android:padding="@dimen/_4sdp"
+                    android:text="@string/rejected"
+                    android:visibility="gone"
+                    android:backgroundTint="@color/ColorRed"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_offered_to"
+                    tools:ignore="UnusedAttribute" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 

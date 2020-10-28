@@ -7,6 +7,8 @@ interface ProjectsContract {
         fun addListProject(list: List<ProjectsModel>)
         fun showProgressBar()
         fun hideProgressBar()
+        fun showNoProjectView()
+        fun hideNoProjectView()
     }
 
     interface Presenter {
